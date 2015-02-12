@@ -1,0 +1,17 @@
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	border-style: none;
+	border-bottom-style: solid;
+	border-bottom-color: $granite;
+	border-bottom-width: 1px;
+	box-shadow: none;
+	color: $granite;
+    font-weight: $bold;
+
+	@include input-placeholder {
+	    color: $gravel;
+	    font-weight: $bold;
+	}
+}
