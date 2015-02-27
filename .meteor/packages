@@ -13,3 +13,5 @@ aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
 accounts-ui
+natestrauser:select2
+aldeed:autoform-select2
