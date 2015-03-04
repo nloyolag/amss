@@ -18,6 +18,16 @@
 				{{> afQuickField name='location' id='profile-location-edit'}}
 				{{> afQuickField name='skills' id='profile-skills-edit'}}
 
+				<button type="submit">Submit</button>
+
+			{{/autoForm}}
+
+			{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
+
+				{{> afQuickField name='skillName' id='add-skill'}}
+
+				<button type="submit">Submit Skill</button>
+
 			{{/autoForm}}
 
 		</div>
