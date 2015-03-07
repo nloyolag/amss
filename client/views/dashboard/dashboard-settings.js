@@ -4,9 +4,21 @@
 ===============================
 */
 
-Template.dashboardSettings.created = function () {
-	
+Template.dashboardSettings.created = function() {
+
 };
+
+/*
+===============================
+=           Rendered          =
+===============================
+*/
+
+Template.dashboardSettings.rendered = function() {
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+}
 
 /*
 ===============================
@@ -15,21 +27,21 @@ Template.dashboardSettings.created = function () {
 */
 
 AutoForm.hooks({
-	editProfileForm: {
+    editProfileForm: {
 
-		before: {
-			editProfile: function(doc, template) {
+        before: {
+            editProfile: function(doc, template) {
 
-			}
-		},
+            }
+        },
 
-		after: {
-			editProfile: function(error, result, template) {
+        after: {
+            editProfile: function(error, result, template) {
 
-			}
-		}
+            }
+        }
 
-	}
+    }
 });
 
 /*
@@ -39,9 +51,9 @@ AutoForm.hooks({
 */
 
 Template.dashboardSettings.helpers({
-	editProfileSchema: function() {
-		return Schema.editProfile;
-	}
+    editProfileSchema: function() {
+        return Schema.editProfile;
+    }
 });
 
 /*

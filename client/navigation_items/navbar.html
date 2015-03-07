@@ -1,0 +1,24 @@
+<template name="navbar">
+
+    <nav>
+        <div class="navbar-fixed">
+            <div class="nav-wrapper">
+                <form class="left hide-on-med-and-down">
+                    <div class="input-field">
+                        <input id="search" type="text" required>
+                        <label for="search"><i class="mdi-action-search"></i>
+                        </label>
+                    </div>
+                </form>
+                <a href="#" class="brand-logo center">taskme</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Notifications</a>
+                    </li>
+                    <li>
+                        {{> loginButtons}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
