@@ -1,36 +1,36 @@
 <template name="dashboardSettings">
+	<div class="container">
+		<div class="card-panel green-header-card dashboard-card">
 
-	<div class="dashboard-card">
+			<div class="header">
+				<p>My info</p>
+			</div>
 
-		<div class="dashboard-card-head">
-			<p>Modifica tu perfil</p>
-		</div>
+			<div class="dashboard-card-content">
 
-		<div class="dashboard-card-content">
+				{{#autoForm id="editProfileForm" schema=editProfileSchema type="method" meteormethod="editProfile"}}
 
-			{{#autoForm id="editProfileForm" schema=editProfileSchema type="method" meteormethod="editProfile"}}
+					{{> afQuickField name='name' id='profile-name-edit'}}
+					{{> afQuickField name='username' id='profile-username-edit'}}
+					{{> afQuickField name='email' id='profile-email-edit'}}
+					{{> afQuickField name='userTitle' id='profile-user-title-edit'}}
+					{{> afQuickField name='bio' id='profile-bio-edit'}}
+					{{> afQuickField name='location' id='profile-location-edit'}}
+					{{> afQuickField name='skills' id='profile-skills-edit'}}
 
-				{{> afQuickField name='name' id='profile-name-edit'}}
-				{{> afQuickField name='username' id='profile-username-edit'}}
-				{{> afQuickField name='email' id='profile-email-edit'}}
-				{{> afQuickField name='userTitle' id='profile-user-title-edit'}}
-				{{> afQuickField name='bio' id='profile-bio-edit'}}
-				{{> afQuickField name='location' id='profile-location-edit'}}
-				{{> afQuickField name='skills' id='profile-skills-edit'}}
+					<button type="submit">Submit</button>
 
-				<button type="submit">Submit</button>
+				{{/autoForm}}
 
-			{{/autoForm}}
+				{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
 
-			{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
+					{{> afQuickField name='skillName' id='add-skill'}}
 
-				{{> afQuickField name='skillName' id='add-skill'}}
+					<button type="submit">Submit Skill</button>
 
-				<button type="submit">Submit Skill</button>
+				{{/autoForm}}
 
-			{{/autoForm}}
-
+			</div>
 		</div>
 	</div>
-
 </template>
