@@ -12,7 +12,6 @@ aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
 accounts-ui
-materialize:materialize
 natestrauser:select2
 aldeed:autoform-select2
 sacha:spin
