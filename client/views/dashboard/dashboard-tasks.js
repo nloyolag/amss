@@ -4,21 +4,15 @@
 ===============================
 */
 
-Template.dashboardSettings.created = function() {
-    
+Template.dashboardTasks.created = function() {
+    Session.set("userTasksEmployer", Tasks.find({
+        employer: Meteor.userId()
+    }).fetch());
+    Session.set("userTasksEmployee", Tasks.find({
+        employee: Meteor.userId()
+    }).fetch());
 };
 
-/*
-===============================
-=           Rendered          =
-===============================
-*/
-
-Template.dashboardSettings.rendered = function() {
-    $(document).ready(function() {
-        $('select').material_select();
-    });
-}
 
 /*
 ===============================
@@ -27,7 +21,7 @@ Template.dashboardSettings.rendered = function() {
 */
 
 AutoForm.hooks({
-    editProfileForm: {
+    /*editProfileForm: {
 
         before: {
             editProfile: function(doc, template) {
@@ -41,7 +35,7 @@ AutoForm.hooks({
             }
         }
 
-    }
+    }*/
 });
 
 /*
@@ -50,10 +44,16 @@ AutoForm.hooks({
 ===============================
 */
 
-Template.dashboardSettings.helpers({
-    editProfileSchema: function() {
-        return Schema.editProfile;
+Template.dashboardTasks.helpers({
+    
+    userTasksEmployer: function() {
+        return Session.get("userTasksEmployer");
+    },
+
+    userTasksEmployee: function() {
+        return Session.get("userTasksEmployee");
     }
+
 });
 
 /*

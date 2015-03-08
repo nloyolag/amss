@@ -1,0 +1,12 @@
+<template name="task">
+	<p>{{name}}</p>
+
+	{{#if isEmployee}}
+		<p>{{employeeStatus}}</p>
+		<p>{{taskEmployer}}</p>
+	{{else}}
+		<p>{{employerStatus}}</p>
+		<p>{{taskEmployee}}</p>
+	{{/if}}
+		
+</template>
