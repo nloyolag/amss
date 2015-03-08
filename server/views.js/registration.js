@@ -14,6 +14,7 @@ Meteor.methods({
                bio: doc.bio,
                location: doc.location,
                skills: doc.skills,
+               img: doc.img,
                active: true,
 
            }
@@ -26,4 +27,12 @@ Meteor.methods({
 
 	}
 
+});
+
+Meteor.startup(function () {
+  UploadServer.init({
+    tmpDir: process.env.PWD + '/public/.uploads/images/tmp',
+    uploadDir: process.env.PWD + '/public/.uploads/images/',
+    checkCreateDirectories: true
+  })
 });
