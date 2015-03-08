@@ -1,9 +1,10 @@
 .green-header-card{
 	.header{
-		color: $green-darken-2;
-		padding-bottom: 5px;
-		border-bottom: 2.5px solid $green-darken-2;
+		color: color("green","darken-2");
+		padding-bottom: 0px;
+		border-bottom: 2.5px solid color("green","darken-2");
 		margin-bottom: 30px;
-		font-weight: $medium;
+		font-weight: $bold;
+		font-size: 16px;
 	}
 }

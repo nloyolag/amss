@@ -4,8 +4,8 @@
 ===============================
 */
 
-Template.registerUser.created = function () {
-	
+Template.registerUser.created = function() {
+
 };
 
 /*
@@ -38,17 +38,18 @@ AutoForm.hooks({
 		},
 
 		after: {
-		   registerUser: function(error, result, template) {
-		       if (!error) {
-		           Meteor.loginWithPassword(result.username, result.password, function(error) {                
+		    registerUser: function(error, result, template) {
+				if (!error) {
+					Meteor.loginWithPassword(result.username, result.password, function(error) {                
 			           	if (!error) {
-			                   alertify.success('Has registrado tu usuario');
-			                   Router.go('dashboard');
+							alertify.success('Has registrado tu usuario');
+							Router.go('dashboard');
 			            }            
 		           	});        
-		       }
-		   }
+		        }
+		    }
 		},
+
         onError: function(operation, error, template) {
 		    if (error.reason && error.reason === 'Email already exists.') {
 		        AutoForm.getValidationContext('createUserForm').addInvalidKeys([
