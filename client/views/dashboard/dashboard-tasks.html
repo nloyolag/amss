@@ -6,7 +6,18 @@
 			</div>
 		</div>
 		<div class="dashboard-card-content">
-			
+			<div class="mine">
+				<h4>Mine</h4>
+				{{#each userTasksEmployee}}
+					{{> task isEmployee=true}}
+				{{/each}}
+			</div>
+			<div class="delegated">
+				<h4>Delegated</h4>
+				{{#each userTasksEmployer}}
+					{{> task}}
+				{{/each}}
+			</div>
 		</div>
 	</div>
 </template>
