@@ -1,0 +1,38 @@
+.dashboard-card-content {
+    .list {
+        width: 48.999%;
+        display: inline-block;
+        margin-right: 10px;
+        .title {
+            border-bottom: 1px solid color("grey", "darken-4");
+            margin-top: 3px;
+        }
+        &:nth-child(2) {
+            margin-right: 0px;
+        }
+        .image {
+            width: 20%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .side-content {
+            width: 76.99999%;
+            font-weight: $light;
+            display: inline-block;
+            p{
+            	margin-top: 0px;
+            	margin-bottom: 0px;
+            }
+            .status {
+                font-size: 12px;
+                font-weight: $normal;
+            }
+            .on-going {
+                color: color("light-green", "darken-3");
+            }
+            .pending-review {
+                color: color("amber", "darken-1");
+            }
+        }
+    }
+}

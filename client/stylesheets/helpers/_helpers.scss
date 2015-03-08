@@ -1,0 +1,15 @@
+.centered-in-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.no-margins{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.right-position{
+	margin-left: 95%;
+}

@@ -1,6 +1,6 @@
 <template name="dashboardSettings">
 	<div class="container">
-		<div class="card-panel green-header-card dashboard-card">
+		<div class="middle-centered card-panel green-header-card dashboard-card">
 
 			<div class="header">
 				<p>My info</p>
@@ -10,15 +10,28 @@
 
 				{{#autoForm id="editProfileForm" schema=editProfileSchema type="method" meteormethod="editProfile"}}
 
-					{{> afQuickField name='name' id='profile-name-edit'}}
+					<div class="input-field">
+						{{> afQuickField name='name' id='profile-name-edit'}}
+					</div>
+					<div class="input-field">
 					{{> afQuickField name='username' id='profile-username-edit'}}
+					</div>
+					<div class="input-field">
 					{{> afQuickField name='email' id='profile-email-edit'}}
+					</div>
+					<div class="input-field">
 					{{> afQuickField name='userTitle' id='profile-user-title-edit'}}
+					</div>
+					<div class="input-field">
 					{{> afQuickField name='bio' id='profile-bio-edit'}}
+					</div>
+					<div class="input-field">
 					{{> afQuickField name='location' id='profile-location-edit'}}
+					</div>
+
 					{{> afQuickField name='skills' id='profile-skills-edit'}}
 
-					<button type="submit">Submit</button>
+					<button  class="btn waves-effect waves-light" type="submit">Submit</button>
 
 				{{/autoForm}}
 
@@ -26,7 +39,9 @@
 
 					{{> afQuickField name='skillName' id='add-skill'}}
 
-					<button type="submit">Submit Skill</button>
+					<button class="btn waves-effect waves-light" type="submit">Submit Skill
+					<i class="mdi-content-add right"></i>
+					</button>
 
 				{{/autoForm}}
 

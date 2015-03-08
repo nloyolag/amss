@@ -1,10 +1,16 @@
 .green-header-card{
+	position:relative;
 	.header{
-		color: color("green","darken-2");
-		padding-bottom: 0px;
-		border-bottom: 2.5px solid color("green","darken-2");
-		margin-bottom: 30px;
+		color: color("grey","lighten-5");
 		font-weight: $bold;
 		font-size: 16px;
+		background-color: color("green","base");
+		position:absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		p{
+			margin-left: 20px;
+		}
 	}
 }

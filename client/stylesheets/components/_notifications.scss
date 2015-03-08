@@ -1,0 +1,23 @@
+.notification {
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid color("grey", "lighten-2");
+    .image {
+        //@include border-radius(100%);
+        width: 10%;
+        //height: auto;
+        margin-right: 10px;
+        //display: inline-block;
+    }
+    .side-content {
+        width: 89.999999%;
+        display: inline-block;
+    }
+    &:last-child {
+        border-bottom: none;
+    }
+    &:first-child {
+        padding-top: 0px;
+    }
+}

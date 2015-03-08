@@ -1,38 +1,57 @@
 <template name="registerUser">
+	<div class="container">
+		<div class="card-panel register-user">
 
-	<div class="register-user">
+			<div class="register-user-head">
+				<p>Crea tu cuenta</p>
+			</div>
 
-		<div class="register-user-head">
-			<p>Crea tu cuenta</p>
-		</div>
+			<div class="register-user-content">
 
-		<div class="register-user-content">
+				{{#autoForm id="createUserForm" schema=createUserSchema type="method" meteormethod="registerUser"}}
 
-			{{#autoForm id="createUserForm" schema=createUserSchema type="method" meteormethod="registerUser"}}
+					<div class="input-field">
+						{{> afQuickField name='name' id='profile-name-create'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='username' id='profile-username-create'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='password' id='profile-password-create' type='password'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='email' id='profile-email-create'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='userTitle' id='profile-user-title-create'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='bio' id='profile-bio-create'}}
+					</div>
+					<div class="input-field">
+						{{> afQuickField name='location' id='profile-location-create'}}
+					</div>
 
-				{{> afQuickField name='name' id='profile-name-create'}}
-				{{> afQuickField name='username' id='profile-username-create'}}
-				{{> afQuickField name='password' id='profile-password-create' type='password'}}
-				{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
-				{{> afQuickField name='email' id='profile-email-create'}}
-				{{> afQuickField name='userTitle' id='profile-user-title-create'}}
-				{{> afQuickField name='bio' id='profile-bio-create'}}
-				{{> afQuickField name='location' id='profile-location-create'}}
-				{{> afQuickField name='skills' id='profile-skills-create'}}
+					{{> afQuickField name='skills' id='profile-skills-create'}}
 
-				<button type="submit">Submit</button>
+					<button class="btn waves-effect waves-light" type="submit">Submit</button>
 
-			{{/autoForm}}
+				{{/autoForm}}
 
-			{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
+				{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
 
-				{{> afQuickField name='skillName' id='add-skill'}}
+					{{> afQuickField name='skillName' id='add-skill'}}
 
-				<button type="submit">Submit Skill</button>
+					<button class="btn waves-effect waves-light" type="submit">Submit Skill
+					<i class="mdi-content-add right"></i>
+					</button>
 
-			{{/autoForm}}
+				{{/autoForm}}
 
+			</div>
 		</div>
 	</div>
-
 </template>

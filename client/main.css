@@ -1,3 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400);
+/* line 1, stylesheets/helpers/_helpers.scss */
+.centered-in-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 8, stylesheets/helpers/_helpers.scss */
+.no-margins {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* line 13, stylesheets/helpers/_helpers.scss */
+.right-position {
+  margin-left: 95%;
+}
+
 /*
 ===============================
 =            Colors           =
@@ -8,7 +28,11 @@
 =         Font weights        =
 ===============================
 */
-@import url(http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400);
+/*
+===============================
+=        	Heights           =
+===============================
+*/
 /* line 377, stylesheets/helpers/_colors.scss */
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important;
@@ -3211,9 +3235,92 @@ th {
   padding: 0;
 }
 
+/* line 1, stylesheets/components/_notifications.scss */
+.notification {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+/* line 6, stylesheets/components/_notifications.scss */
+.notification .image {
+  width: 10%;
+  margin-right: 10px;
+}
+/* line 13, stylesheets/components/_notifications.scss */
+.notification .side-content {
+  width: 89.999999%;
+  display: inline-block;
+}
+/* line 17, stylesheets/components/_notifications.scss */
+.notification:last-child {
+  border-bottom: none;
+}
+/* line 20, stylesheets/components/_notifications.scss */
+.notification:first-child {
+  padding-top: 0px;
+}
+
+/* line 2, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list {
+  width: 48.999%;
+  display: inline-block;
+  margin-right: 10px;
+}
+/* line 6, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .title {
+  border-bottom: 1px solid #212121;
+  margin-top: 3px;
+}
+/* line 10, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list:nth-child(2) {
+  margin-right: 0px;
+}
+/* line 13, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .image {
+  width: 20%;
+  margin-right: 10px;
+  display: inline-block;
+}
+/* line 18, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .side-content {
+  width: 76.99999%;
+  font-weight: 300;
+  display: inline-block;
+}
+/* line 22, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .side-content p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/* line 26, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .side-content .status {
+  font-size: 12px;
+  font-weight: 400;
+}
+/* line 30, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .side-content .on-going {
+  color: #558b2f;
+}
+/* line 33, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .side-content .pending-review {
+  color: #ffb300;
+}
+
+/* line 1, stylesheets/components/_cards.scss */
+.dashboard-card-content {
+  width: 100%;
+}
+
+/* line 5, stylesheets/components/_cards.scss */
+.dashboard-card {
+  min-height: 150px;
+  padding-top: 75px;
+}
+
 /* line 1, stylesheets/layout/_header.scss */
 .navbar-fixed {
-  background-color: #388E3C;
+  background-color: #2E7D32;
 }
 
 /* line 1, stylesheets/layout/_body.scss */
@@ -3222,12 +3329,22 @@ body {
   font-family: roboto;
 }
 
-/* line 2, stylesheets/pages/profile/_cards.scss */
+/* line 1, stylesheets/pages/profile/_cards.scss */
+.green-header-card {
+  position: relative;
+}
+/* line 3, stylesheets/pages/profile/_cards.scss */
 .green-header-card .header {
-  color: #388E3C;
-  padding-bottom: 0px;
-  border-bottom: 2.5px solid #388E3C;
-  margin-bottom: 30px;
+  color: #fafafa;
   font-weight: 700;
   font-size: 16px;
+  background-color: #4CAF50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+/* line 12, stylesheets/pages/profile/_cards.scss */
+.green-header-card .header p {
+  margin-left: 20px;
 }

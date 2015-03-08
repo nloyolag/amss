@@ -1,12 +1,20 @@
 <template name="dashboardTasks">
-	<div class="container">
-		<div class="card-panel green-header-card dashboard-card">
-			<div class="header">
-				<p>Tasks</p>
-			</div>
-		</div>
-		<div class="dashboard-card-content">
-			
-		</div>
-	</div>
+    <div class="container">
+        <div class="card-panel green-header-card dashboard-card">
+            <div class="header">
+                <p>Tasks</p>
+            </div>
+            <div class="dashboard-card-content">
+                <div class="list">
+                    <p class="title">Mine</p>
+                    {{> taskSimple}}
+                </div>
+                <div class="list">
+                    <p class="title">Delegated</p>
+                    {{> taskSimple}}
+                </div>
+            </div>
+            <a href="#" class="right-position"><i class="small mdi-action-history"></i></a>
+        </div>
+    </div>
 </template>
