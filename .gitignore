@@ -36,3 +36,5 @@ Thumbs.db
 #########
 stylesheets/.sass-cache
 stylesheets/.sass-cache/**
+.uploads
+.uploads/**
