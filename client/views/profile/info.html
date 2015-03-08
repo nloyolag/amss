@@ -5,8 +5,26 @@
 		<p>{{profileUser.profile.name}}</p>
 		<p>{{profileUser.profile.userTitle}}</p>
 		<p>{{profileUser.profile.location}}</p>
-		<button>Task me</button>
+		{{#unless hasActiveTask}}
+			<button id="task-me">Task me</button>
+		{{/unless}}
 		<button>Message me</button>
+	</div>
+
+	<div id="create-task" class="modal modal-fixed-footer">
+	    <h4>Create Task</h4>
+
+	    {{#autoForm id="createTaskForm" schema=createTaskSchema type="method" meteormethod="createTask"}}
+
+			{{> afQuickField name='name' id='create-task-name'}}
+			{{> afQuickField name='description' id='create-task-description' rows=2}}
+			{{> afQuickField name='employer' id='create-task-employer'}}
+			{{> afQuickField name='employee' id='create-task-employee'}}
+
+			<button type="submit">Submit</button>
+
+		{{/autoForm}}
+
 	</div>
 
 </template>

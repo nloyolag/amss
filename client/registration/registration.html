@@ -1,4 +1,5 @@
 <template name="registerUser">
+
 	<div class="container">
 		<div class="card-panel register-user">
 
@@ -51,7 +52,10 @@
 
 				{{/autoForm}}
 
+				{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
+
 			</div>
+
 		</div>
 	</div>
 </template>

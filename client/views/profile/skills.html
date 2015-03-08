@@ -1,11 +1,11 @@
 <template name="skills">
 
-	<div class="profile-card">
+	<div class="user-skills">
 		<div class="profile-card-head">
 			My Skills
-		</div>
-		<div class="profile-card-content">
-			<!-- foreach user.skill  -->
+			{{#each userSkills}}
+				<p>{{this}}</p>
+			{{/each}}
 		</div>
 	</div>
 

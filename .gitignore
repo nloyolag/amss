@@ -34,5 +34,7 @@ Thumbs.db
 
 # Other #
 #########
-client/stylesheets/.sass-cache
-client/stylesheets/.sass-cache/**
+stylesheets/.sass-cache
+stylesheets/.sass-cache/**
+.uploads
+.uploads/**

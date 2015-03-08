@@ -26,6 +26,13 @@ AutoForm.hooks({
                     });
                     doc.skills = skills;
                 }
+
+                if (Session.get('imgUrl')) {
+                    doc.img = Session.get('imgUrl');
+                } else {
+                    doc.img = './public/images/default.jpg';
+                }
+
                 return doc;
             }
         },
@@ -42,6 +49,7 @@ AutoForm.hooks({
                 }
             }
         },
+
         onError: function(operation, error, template) {
             if (error.reason && error.reason === 'Email already exists.') {
                 AutoForm.getValidationContext('createUserForm').addInvalidKeys([{
@@ -71,8 +79,16 @@ Template.registerUser.helpers({
     }
 });
 
+
 /*
 ===============================
 =           Events            =
 ===============================
 */
+
+
+Meteor.startup(function() {
+    Uploader.finished = function(index, fileInfo, templateContext) {
+        Session.set('imgUrl', fileInfo.url);
+    }
+})
