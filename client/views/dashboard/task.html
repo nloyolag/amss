@@ -11,14 +11,34 @@
 -->
 
 <template name="task">
-	<p>{{name}}</p>
+	<div class="valign-wrapper">
+        <img src="http://www.adweek.com/galleycat/wp-content/uploads/sites/11/2013/01/image-3.jpg" alt="profile_pic" class="image responsive-img circle">
+        <div class="side-content">
 
-	{{#if isEmployee}}
-		<p>{{employeeStatus}}</p>
-		<p>{{taskEmployer}}</p>
-	{{else}}
-		<p>{{employerStatus}}</p>
-		<p>{{taskEmployee}}</p>
-	{{/if}}
-		
+            <p>{{task.name}}</p>
+
+            {{#if isEmployee}}
+
+	            <p class="on-going status">
+	                {{task.employeeStatus}}
+	            </p>
+	            <p>{{taskEmployer}}</p>
+	            <div class="actions">
+	                <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
+	            </div>
+
+            {{else}}
+
+            	<p class="on-going status">
+	                {{task.employerStatus}}
+	            </p>
+	            <p>{{taskEmployee}}</p>
+	            <div class="actions">
+	                <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
+	            </div>
+
+            {{/if}}
+
+        </div>
+    </div>	
 </template>

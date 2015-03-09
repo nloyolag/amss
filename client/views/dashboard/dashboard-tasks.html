@@ -19,39 +19,18 @@
             <div class="dashboard-card-content">
                 <div class="list">
                     <p class="title">Mine</p>
-                    {{> taskSimple}}
+                    {{#each userTasksEmployee}}
+						{{> task isEmployee=true task=this}}
+					{{/each}}
                 </div>
                 <div class="list">
                     <p class="title">Delegated</p>
-                    {{> taskSimple}}
+                    {{#each userTasksEmployer}}
+						{{> task isEmployee=false task=this}}
+					{{/each}}
                 </div>
             </div>
             <a href="#" class="right-position"><i class="small mdi-action-history"></i></a>
         </div>
     </div>
 </template>
-
-<!-- Functional 
-	<div class="container">
-		<div class="card-panel green-header-card dashboard-card">
-			<div class="header">
-				<p>Tasks</p>
-			</div>
-		</div>
-		<div class="dashboard-card-content">
-			<div class="mine">
-				<h4>Mine</h4>
-				{{#each userTasksEmployee}}
-					{{> task isEmployee=true}}
-				{{/each}}
-			</div>
-			<div class="delegated">
-				<h4>Delegated</h4>
-				{{#each userTasksEmployer}}
-					{{> task}}
-				{{/each}}
-			</div>
-		</div>
-	</div>
-</template>
--->
