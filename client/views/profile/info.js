@@ -20,43 +20,6 @@ Template.profileInfo.created = function() {
 
 };
 
-
-/*
-===============================
-=            Forms            =
-===============================
-*/
-
-AutoForm.hooks({
-
-	createTaskForm: {
-
-		before: {
-
-			createTask: function(doc, template) {
-				doc.employer = Meteor.userId();
-				doc.employee = Session.get('currentProfileId');
-				return doc;
-			}
-
-		},
-
-		after: {
-
-			createTask: function(error, result, template) {
-				if (!error) {
-					$('#create-task').closeModal();
-					alertify.success("Se ha creado la tarea exitosamente");
-					Session.set("hasActiveTask", true);
-				}			
-			}
-
-		}
-
-	}
-
-});
-
 /*
 ===============================
 =           Helpers           =
@@ -64,10 +27,6 @@ AutoForm.hooks({
 */
 
 Template.profileInfo.helpers({
-
-	createTaskSchema: function() {
-		return Schema.createTask;
-	},
 
 	hasActiveTask: function() {
 		return Session.get("hasActiveTask");

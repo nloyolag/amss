@@ -19,9 +19,10 @@
 
             {{#if isEmployee}}
 
-	            <p class="on-going status">
+            	<p class="on-going status">
 	                {{task.employeeStatus}}
 	            </p>
+
 	            <p>{{taskEmployer}}</p>
 	            <div class="actions">
 	                <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
@@ -29,9 +30,18 @@
 
             {{else}}
 
-            	<p class="on-going status">
-	                {{task.employerStatus}}
-	            </p>
+            	{{#if pendingReview}} 
+            		<a href="#" id="do-review"> 
+			            <p class="on-going status">
+			                {{task.employerStatus}}
+			            </p>
+	            	</a> 
+	            {{else}}
+	            	<p class="on-going status">
+		                {{task.employerStatus}}
+		            </p>
+	            {{/if}}
+          	
 	            <p>{{taskEmployee}}</p>
 	            <div class="actions">
 	                <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>

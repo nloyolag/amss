@@ -12,6 +12,34 @@ Template.task.helpers({
 
     taskEmployee: function() {
     	return Meteor.users.findOne(this.task.employee).profile.name;
+    },
+
+    pendingReview: function() {
+    	if (this.isEmployee) {
+    		if (this.task.employeeStatus === "Pending Review") 
+    			return true;
+    	} else {
+    		if (this.task.employerStatus === "Pending Review") 
+    			return true;
+    	}
+    	return false;
     }
 
+});
+
+/*
+===============================
+=           Events            =
+===============================
+*/
+
+Template.task.events({
+
+	'click #do-review': function(event) {
+
+		event.preventDefault();
+		$('#create-review').openModal();
+        Session.set("reviewTaskId", this.task._id);
+        Session.set("reviewToId", this.task.employee);
+	}
 });

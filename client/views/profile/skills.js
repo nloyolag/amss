@@ -20,9 +20,6 @@ Template.skills.created = function() {
 */
 Template.skills.helpers({
 	userSkills: function() {
-		console.log(Meteor.users.findOne({
-			username: Session.get("currentProfileUsername")
-		}).profile);
 		return Meteor.users.findOne({
 			username: Session.get("currentProfileUsername")
 		}).profile.skills;

@@ -1,0 +1,32 @@
+<!--
+=================================================
+=   dashboardModals Template                    =
+=                                               =
+=   Description: Contains all modal windows of  =
+=   the dashboard templates                     =
+=                                               =
+=   Used By: dashboard                          =
+=================================================
+-->
+
+<template name="dashboardModals">
+
+	<div id="create-review" class="modal modal-fixed-footer">
+	    <h4>Create Review</h4>
+
+	    {{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
+
+			{{> afQuickField name='title' id='create-review-title'}}
+			{{> afQuickField name='description' id='create-review-description' rows=2}}
+			{{> afQuickField name='score' id='create-review-score'}}
+			{{> afQuickField name='task' id='create-review-task'}}
+			{{> afQuickField name='to' id='create-review-to'}}
+			{{> afQuickField name='from' id='create-review-from'}}
+
+			<button type="submit">Submit</button>
+
+		{{/autoForm}}
+
+	</div>
+
+</template>
