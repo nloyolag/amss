@@ -6,8 +6,8 @@
 
 Template.dashboardModals.helpers({
     
-    reviewTo: function() {
-    	return Reviews.findOne({task: Session.get("reviewTaskId")}).title;
+    review: function() {
+    	return Reviews.findOne({task: Session.get("reviewTaskId")});
     }
 
 });

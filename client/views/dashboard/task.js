@@ -54,7 +54,6 @@ Template.task.events({
         Session.set("reviewTaskId", this.task._id);
         Session.set("reviewToId", this.task.employee);
         $('#view-review').openModal();
-
     }
 
 
