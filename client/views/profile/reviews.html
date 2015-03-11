@@ -1,0 +1,24 @@
+<!--
+=================================================
+=   review Template                             =
+=                                               =
+=   Description: Displays user reviews          =
+=                                               =
+=   Used By: profile                            =
+=================================================
+-->
+
+<template name="reviews">
+
+	<div class="user-reviews">
+		<div class="profile-card-head">
+			My Reviews
+			{{#each userReviews}}
+				<p>{{title}}</p>
+				<p>{{description}}</p>
+				<p>{{score}}</p>
+			{{/each}}
+		</div>
+	</div>
+
+</template>

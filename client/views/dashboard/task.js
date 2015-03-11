@@ -23,6 +23,11 @@ Template.task.helpers({
     			return true;
     	}
     	return false;
+    },
+
+    checkReview: function() {
+        event.preventDefault();
+        $('#view-review').openModal();
     }
 
 });
@@ -41,5 +46,16 @@ Template.task.events({
 		$('#create-review').openModal();
         Session.set("reviewTaskId", this.task._id);
         Session.set("reviewToId", this.task.employee);
-	}
+	},
+
+    'click #check-review': function(event) {
+
+        event.preventDefault();
+        Session.set("reviewTaskId", this.task._id);
+        Session.set("reviewToId", this.task.employee);
+        $('#view-review').openModal();
+
+    }
+
+
 });
