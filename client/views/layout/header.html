@@ -9,7 +9,9 @@
 -->
 
 <template name="header">
-	<header>
-		{{> navbar}}
-	</header>
+    <header>
+    	{{#if currentUser}}
+        	{{> navbar}}
+        {{/if}}
+    </header>
 </template>

@@ -9,14 +9,13 @@
 -->
 
 <template name="skills">
-
-	<div class="user-skills">
-		<div class="profile-card-head">
-			My Skills
-			{{#each userSkills}}
-				<p>{{this}}</p>
-			{{/each}}
-		</div>
-	</div>
-
+    <div class="card-panel">
+        <div class="user-skills">
+            <div class="profile-card-head">
+                My Skills {{#each userSkills}}
+                <p>{{this}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
 </template>

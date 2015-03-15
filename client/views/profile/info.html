@@ -11,15 +11,40 @@
 
 <template name="profileInfo">
 
-	<div class="profile-info">
-		<p>Profile Pic</p>
-		<p>{{profileUser.profile.name}}</p>
-		<p>{{profileUser.profile.userTitle}}</p>
-		<p>{{profileUser.profile.location}}</p>
-		{{#unless hasActiveTask}}
-			<button id="task-me">Task me</button>
-		{{/unless}}
-		<button>Message me</button>
-	</div>
+    <div class="card-panel">
+        <div class="profile-info">
+            <!-- First row (Profile pic, name, location, actions) -->
+        	<div class="center-align"><img src="{{ profileUser.profile.img }}" alt="" class="responsive-img circle"></div>
+            <p class="name">{{profileUser.profile.name}}</p>
+            <p class="title">{{profileUser.profile.userTitle}}</p>
+            <p class="location">{{profileUser.profile.location}}</p>
+            {{#unless hasActiveTask}}
+            <button class="waves-effect waves-light btn task" id="task-me">Task me</button>
+            {{/unless}}
+            <button class="waves-effect waves-light btn message">Message me</button>
+            <!-- First row (Profile pic, name, location, actions)-->
+
+            <hr>
+            <!--Completed Tasks -->
+            <p class="number-stat">200</p>
+            <p class="stat-description">Completed tasks</p>
+            <!--Completed Tasks -->
+
+            <hr>
+            <!--Reviews percentage -->
+            <p class="number-stat">99%</p>
+            <p class="stat-description">Positive reviews</p>
+            <!--Reviews percentage -->
+
+            <hr>
+            <!--Badges -->
+            <p>Earned bagdes</p>
+            <div>
+                <img class="badge" src="https://www.digitalocean.com/assets/images/logos-badges/png/DO_SSD_Power_Badge_Gold-28365069.png" alt="">
+                <img class="badge" src="https://www.digitalocean.com/assets/images/logos-badges/png/DO_SSD_Power_Badge_Blue-077bf22e.png" alt="">
+            </div>
+            <!--Badges -->
+        </div>
+    </div>
 
 </template>

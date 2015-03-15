@@ -10,8 +10,16 @@
 -->
 
 <template name="profile">
-	{{> profileInfo}}
-	{{> skills}}
-	{{> reviews}}
-	{{> profileModals}}
+    <div class="content-90">
+        <div class="row">
+            <div class="col s3">
+                {{> profileInfo}}
+            </div>
+            <div class="col s9">
+                {{> skills}}
+                {{> reviews}}
+            </div>
+        </div>
+    </div>
+    {{> profileModals}}
 </template>

@@ -3319,14 +3319,111 @@ th {
 }
 
 /* line 1, stylesheets/layout/_header.scss */
-.navbar-fixed {
-  background-color: #2E7D32;
+nav {
+  background-color: #2E7D32 !important;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+/* line 6, stylesheets/layout/_header.scss */
+nav .spacer-25px {
+  margin-right: 25px;
+}
+
+/* line 10, stylesheets/layout/_header.scss */
+#dropdown-navbar {
+  padding: 0px 0px;
 }
 
 /* line 1, stylesheets/layout/_body.scss */
 body {
   background-color: #e0e0e0;
   font-family: roboto;
+  padding-top: 80px;
+}
+
+/* line 1, stylesheets/pages/profile/_info.scss */
+.profile-info {
+  text-align: center;
+}
+/* line 3, stylesheets/pages/profile/_info.scss */
+.profile-info p {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  font-size: 12pt;
+}
+/* line 8, stylesheets/pages/profile/_info.scss */
+.profile-info img {
+  width: 60%;
+  margin-top: 10px;
+}
+/* line 11, stylesheets/pages/profile/_info.scss */
+.profile-info img.badge {
+  display: inline;
+  width: 30%;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+/* line 18, stylesheets/pages/profile/_info.scss */
+.profile-info .name {
+  font-weight: 700;
+  font-size: 16pt;
+  color: #212121;
+}
+/* line 23, stylesheets/pages/profile/_info.scss */
+.profile-info .title {
+  font-weight: 300;
+  font-size: 13pt;
+  color: #616161;
+}
+/* line 28, stylesheets/pages/profile/_info.scss */
+.profile-info .location {
+  font-weight: 300;
+  font-size: 13pt;
+  color: #757575;
+}
+/* line 33, stylesheets/pages/profile/_info.scss */
+.profile-info button {
+  display: block;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 38, stylesheets/pages/profile/_info.scss */
+.profile-info button.task {
+  background-color: #00C853;
+}
+/* line 41, stylesheets/pages/profile/_info.scss */
+.profile-info button.message {
+  background-color: #039be5;
+}
+/* line 45, stylesheets/pages/profile/_info.scss */
+.profile-info hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* line 51, stylesheets/pages/profile/_info.scss */
+.profile-info .number-stat {
+  font-size: 20pt;
+  font-weight: 400;
+  color: #212121;
+}
+/* line 56, stylesheets/pages/profile/_info.scss */
+.profile-info .stat-description {
+  font-size: 10pt;
+  font-weight: 400;
+  color: #757575;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+/* line 3, stylesheets/pages/_profile.scss */
+.content-90 {
+  margin-top: 20px;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 /* line 1, stylesheets/pages/profile/_cards.scss */
@@ -3343,8 +3440,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-/* line 12, stylesheets/pages/profile/_cards.scss */
+/* line 14, stylesheets/pages/profile/_cards.scss */
 .green-header-card .header p {
   margin-left: 20px;
+  display: inline;
+}
+/* line 18, stylesheets/pages/profile/_cards.scss */
+.green-header-card .header .single-action {
+  display: inline;
+  margin-left: 88%;
 }

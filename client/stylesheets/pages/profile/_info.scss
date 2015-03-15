@@ -1,0 +1,63 @@
+.profile-info {
+    text-align: center;
+    p {
+        margin-bottom: 8px;
+        margin-top: 8px;
+        font-size: 12pt;
+    }
+    img {
+        width: 60%;
+        margin-top: 10px;
+        &.badge {
+            display: inline;
+            width: 30%;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+    }
+    .name {
+        font-weight: $bold;
+        font-size: 16pt;
+        color: color("grey", "darken-4");
+    }
+    .title {
+        font-weight: $light;
+        font-size: 13pt;
+        color: color("grey", "darken-2");
+    }
+    .location {
+        font-weight: $light;
+        font-size: 13pt;
+        color: color("grey", "darken-1");
+    }
+    button {
+        display: block;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        &.task {
+            background-color: color("green", "accent-4");
+        }
+        &.message {
+            background-color: color("light-blue", "darken-1");
+        }
+    }
+    hr {
+        border: 0;
+        height: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .number-stat {
+        font-size: 20pt;
+        font-weight: $normal;
+        color: color("grey", "darken-4");
+    }
+    .stat-description {
+        font-size: 10pt;
+        font-weight: $normal;
+        color: color("grey", "darken-1");
+        margin-top: -4px;
+        margin-bottom: 4px;
+    }
+}

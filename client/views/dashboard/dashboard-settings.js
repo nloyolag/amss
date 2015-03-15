@@ -5,7 +5,6 @@
 */
 
 Template.dashboardSettings.created = function() {
-    
 };
 
 /*

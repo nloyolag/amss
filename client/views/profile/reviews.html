@@ -10,15 +10,16 @@
 
 <template name="reviews">
 
-	<div class="user-reviews">
-		<div class="profile-card-head">
-			My Reviews
-			{{#each userReviews}}
-				<p>{{title}}</p>
-				<p>{{description}}</p>
-				<p>{{score}}</p>
-			{{/each}}
-		</div>
-	</div>
+    <div class="card-panel">
+        <div class="user-reviews">
+            <div class="profile-card-head">
+                My Reviews {{#each userReviews}}
+                <p>{{title}}</p>
+                <p>{{description}}</p>
+                <p>{{score}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
 
 </template>
