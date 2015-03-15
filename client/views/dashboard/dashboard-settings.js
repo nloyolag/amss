@@ -5,7 +5,7 @@
 */
 
 Template.dashboardSettings.created = function() {
-
+    //Meteor.logout();
 };
 
 /*

@@ -39,7 +39,7 @@ AutoForm.hooks({
 					});
 
 					Meteor.call(
-						"createStartTaskNotification",
+						"createNotification",
 						notificationTitle,
 						Meteor.userId(),
 						Session.get('currentProfileId'),

@@ -19,6 +19,25 @@ Meteor.methods({
 		// Validate that username and email are unique
 		// Edit fields that are different
 		// Add new skills to DB and update user skills
-	}
+	},
+
+	/*
+	====================================================
+	=  Server Method updateTaskStatus                  =
+	=                                                  =
+	=  Arguments: Task ID: taskId                      =
+	=             Employer Status: String              =
+	=             Employee Status: String              =
+	=                                                  =
+	=  Description: Method that updates task status    =
+	=                                                  =
+	=  Used By: views/dashboard/dashboard-modals.js    =
+	====================================================
+	*/
+
+	updateTaskStatus: function(taskId, employerStatus, employeeStatus) {
+		Tasks.update(taskId, {$set: {employerStatus: employerStatus}});
+		Tasks.update(taskId, {$set: {employeeStatus: employeeStatus}});
+	},
 
 });

@@ -2,7 +2,7 @@ Meteor.methods({
 
     /*
     ===================================================
-    =  Server Method createStartTaskNotification      =
+    =  Server Method createNotification               =
     =                                                 =
     =  Arguments: title: String                       =
     =             from: userID                        =
@@ -13,14 +13,14 @@ Meteor.methods({
     =  Returns: Task ID                               =
     =                                                 =
     =  Description: Method that creates a             =
-    =  notification when a user asks another to       =
-    =  develop a task                                 =
+    =  notification                                   =
     =                                                 =
     =  Used By: views/profile/profile-modals.js       =
+    =           views/dashboard/dashboard-modals.js   =
     ===================================================
     */
 
-    createStartTaskNotification: function(title, from, to, active, type) {
+    createNotification: function(title, from, to, active, type) {
         var result = Notifications.insert({
             title: title,
             from: from,
