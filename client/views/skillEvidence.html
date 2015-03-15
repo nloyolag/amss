@@ -1,0 +1,25 @@
+<!--
+=================================================
+=   Skill evidence Template                     =
+=                                               =
+=   Description: Displays the form for the user =
+=	to add evidence for his skills.             =
+=                                               =
+=   Used By: dashboard                          =
+=================================================
+-->
+
+<template name="skillEvidence">
+<p>UPLOAD YOUR SKILL EVIDENCE!</p>
+
+	{{#autoForm id="addEvidenceForm" schema=addEvidenceSchema type="method" meteormethod="addEvidence"}}
+
+		{{> afQuickField name='skill' id='skill-evidence-add'}}
+
+		{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
+
+		<button class="btn waves-effect waves-light" type="submit">Submit</button>
+
+	{{/autoForm}}
+	
+</template>
