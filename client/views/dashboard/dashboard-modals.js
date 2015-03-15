@@ -40,8 +40,28 @@ AutoForm.hooks({
 					$('#create-review').closeModal();
 					alertify.success("The review was created succesfully");
 					var taskId = Session.get("reviewTaskId");
-					Tasks.update(taskId, {$set: {employerStatus: "Done"}});
-					Tasks.update(taskId, {$set: {employeeStatus: "Done"}});
+					Meteor.call("updateTaskStatus", taskId, DONE, DONE);
+
+					var review = Reviews.findOne(result);
+
+					var replacements = {
+						"%FROM%": Meteor.user().username,
+						"%TITLE%": review.title,
+						"%SCORE%": review.score
+					}
+					var notificationTitle = REVIEW_DONE_NOTIFICATION;
+
+					notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+						return replacements[all] || all;
+					})
+
+					Meteor.call("createNotification",
+						notificationTitle,
+						Meteor.userId(),
+						Session.get('reviewToId'),
+						true,
+						REVIEW_DONE
+					);
 				}			
 			}
 
