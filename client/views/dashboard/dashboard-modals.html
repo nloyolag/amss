@@ -31,8 +31,13 @@
 
 	<div id="view-review" class="modal modal-fixed-footer">
 		<h4>Review</h4>
-	    {{review.title}}
-	    
+	    {{review.title}}	    
+	</div>
+
+	<div id="view-notification-task" class="modal modal-fixed-footer">
+		<h4>{{notificationTask.name}}</h4>
+		<h5>{{notificationTaskEmployer.profile.name}}</h5>
+		<p>{{notificationTask.description}}</p>
 	</div>
 
 </template>

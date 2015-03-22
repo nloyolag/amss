@@ -16,8 +16,9 @@
                 <p>Notifications</p>
             </div>
             <div class="dashboard-card-content">
-                {{> notification}}
-                {{> notification}}
+                {{#each notifications}}
+                    {{> notification}}
+                {{/each}}
             </div>
         </div>
     </div>

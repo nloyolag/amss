@@ -8,6 +8,16 @@ Template.dashboardModals.helpers({
     
     review: function() {
     	return Reviews.findOne({task: Session.get("reviewTaskId")});
+    },
+
+    notificationTask: function() {
+    	return Tasks.findOne({_id: Session.get("notificationTaskId")});
+    },
+
+    notificationTaskEmployer: function() {
+    	var task = Tasks.findOne({_id: Session.get("notificationTaskId")});
+    	if (task) 
+    		return Meteor.users.findOne({_id: task.employer});
     }
 
 });
@@ -60,7 +70,8 @@ AutoForm.hooks({
 						Meteor.userId(),
 						Session.get('reviewToId'),
 						true,
-						REVIEW_DONE
+						REVIEW_DONE,
+						taskId
 					);
 				}			
 			}

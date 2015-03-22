@@ -44,7 +44,8 @@ AutoForm.hooks({
 						Meteor.userId(),
 						Session.get('currentProfileId'),
 						true,
-						START_TASK
+						START_TASK,
+						task._id
 					);
 				}
 
