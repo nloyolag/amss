@@ -26,13 +26,13 @@
 	            <p>{{taskEmployer}}</p>
 	            <div class="actions">
 	            	<a href="#" id="complete-task"><i class="small mdi-action-done"></i></a>
-	                <a href="#"><i id="check-review" class="small mdi-navigation-more-horiz"></i></a>
+	                <a href="#" class="check-review"><i class="small mdi-navigation-more-horiz"></i></a>
 	            </div>
 
             {{else}}
 
             	{{#if pendingReview}} 
-            		<a href="#" id="do-review"> 
+            		<a href="#" class="do-review"> 
 			            <p class="on-going status">
 			                {{task.employerStatus}}
 			            </p>

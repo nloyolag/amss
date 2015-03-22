@@ -16,10 +16,10 @@ Template.task.helpers({
 
     pendingReview: function() {
     	if (this.isEmployee) {
-    		if (this.task.employeeStatus === "Pending Review") 
+    		if (this.task.employeeStatus === PENDING_REVIEW) 
     			return true;
     	} else {
-    		if (this.task.employerStatus === "Pending Review") 
+    		if (this.task.employerStatus === PENDING_REVIEW) 
     			return true;
     	}
     	return false;
@@ -40,7 +40,7 @@ Template.task.helpers({
 
 Template.task.events({
 
-	'click #do-review': function(event) {
+	'click .do-review': function(event) {
 
 		event.preventDefault();
 		$('#create-review').openModal();
@@ -48,7 +48,7 @@ Template.task.events({
         Session.set("reviewToId", this.task.employee);
 	},
 
-    'click #check-review': function(event) {
+    'click .check-review': function(event) {
 
         event.preventDefault();
         Session.set("reviewTaskId", this.task._id);

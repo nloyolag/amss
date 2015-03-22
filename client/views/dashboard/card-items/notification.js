@@ -76,12 +76,12 @@ Template.notification.helpers({
 
 Template.notification.events({
 
-	"click #show-task-description": function() {
+	"click .show-task-description": function() {
 		Session.set("notificationTaskId", this.task);
 		$('#view-notification-task').openModal();
 	},
 
-	"click #confirm-start-task": function() {
+	"click .confirm-start-task": function() {
 
 		Meteor.call("dismissNotification", this._id);
 		alertify.success(TASK_CONFIRMED);
@@ -117,7 +117,7 @@ Template.notification.events({
 	
 	},
 
-	"click #dismiss-start-task": function() {
+	"click .dismiss-start-task": function() {
 		var currentNotification = this;
 		alertify.confirm(SURE_REJECT_TASK)
             .set('onok', function() {
@@ -156,6 +156,96 @@ Template.notification.events({
 
 	"click .dismiss-notification": function() {
 		Meteor.call("dismissNotification", this._id);
-	}
+	},
+
+	"click .complete-task-other": function() {
+		var currentNotification = this;
+		alertify.confirm(SURE_COMPLETE_TASK)
+            .set('onok', function() {
+            	Meteor.call("dismissNotification", currentNotification._id);
+
+            	var currentTask = Tasks.findOne({_id: currentNotification.task});
+
+				var replacements = {
+		            "%OTHER%": Meteor.user().username,
+		            "%TASK%": currentTask.name
+		        }
+
+		        if (Meteor.userId() === currentTask.employer) {
+
+		        	var notificationTitle = BOTH_COMPLETED_EMPLOYEE_NOTIFICATION;
+
+			        notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+			            return replacements[all] || all;
+			        })
+
+			        Meteor.call("createNotification",
+			            notificationTitle,
+			            Meteor.userId(),
+			            currentTask.employee,
+			            true,
+			            BOTH_COMPLETED_EMPLOYEE,
+			            currentTask._id
+			        );
+
+			        Meteor.call(
+			            "updateTaskStatus",
+			             currentTask._id,
+			             PENDING_REVIEW,
+			             PENDING_REVIEW
+			        );
+
+			        alertify.success(TASK_COMPLETED_LAST_EMPLOYER);
+
+		        } else if (Meteor.userId() === currentTask.employee) {
+
+		        	var notificationTitle = BOTH_COMPLETED_EMPLOYER_NOTIFICATION;
+
+			        notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+			            return replacements[all] || all;
+			        })
+
+			        Meteor.call("createNotification",
+			            notificationTitle,
+			            Meteor.userId(),
+			            currentTask.employer,
+			            true,
+			            BOTH_COMPLETED_EMPLOYER,
+			            currentTask._id
+			        );
+
+			        Meteor.call(
+			            "updateTaskStatus",
+			             currentTask._id,
+			             PENDING_REVIEW,
+			             PENDING_REVIEW
+			        );
+
+			        alertify.success(TASK_COMPLETED_LAST_EMPLOYEE);
+
+		        }		
+            })
+            .set('labels', {ok:'Accept', cancel:'Cancel'});
+		
+	},
+
+	'click .check-review': function(event) {
+
+        event.preventDefault();
+        var task = Tasks.findOne({_id: this.task});
+        Session.set("reviewTaskId", task._id);
+        Session.set("reviewToId", task.employee);
+        $('#view-review').openModal();
+    },
+
+    'click .do-review': function(event) {
+
+		event.preventDefault();
+		var task = Tasks.findOne({_id: this.task});
+		$('#create-review').openModal();
+        Session.set("reviewTaskId", task._id);
+        Session.set("reviewToId", task.employee);
+        Meteor.call("dismissNotification", this._id);
+	},
 
 });
