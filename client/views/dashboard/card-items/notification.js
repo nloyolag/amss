@@ -40,7 +40,31 @@ Template.notification.helpers({
     	} else {
     		return false;
     	}
-    }
+    },
+
+    isOtherCompleted: function() {
+    	if (this.type === OTHER_COMPLETED) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    },
+
+    isBothCompletedEmployer: function() {
+    	if (this.type === BOTH_COMPLETED_EMPLOYER) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    },
+
+    isBothCompletedEmployee: function() {
+    	if (this.type === BOTH_COMPLETED_EMPLOYEE) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }, 
 
 });
 

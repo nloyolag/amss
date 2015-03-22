@@ -48,6 +48,31 @@
                     <a href="#"><i class="small mdi-content-flag"></i></a>
                 </div>
 
+            {{/if}} {{#if isOtherCompleted}}
+
+                <div class="actions">
+                    <a href="#"><i class="small mdi-action-done"></i></a>
+                    <a href="#"><i class="small mdi-content-clear"></i></a>
+                    <a href="#"><i class="small mdi-content-flag"></i></a>
+                    <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
+                </div>
+
+            {{/if}} {{#if isBothCompletedEmployer}}
+
+                <div class="actions">
+                    <a href="#"><i class="small mdi-action-done"></i></a>
+                    <a href="#"><i class="small mdi-content-clear"></i></a>
+                    <a href="#"><i class="small mdi-content-flag"></i></a>
+                    <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
+                </div>
+
+            {{/if}} {{#if isBothCompletedEmployee}}
+
+                <div class="actions">
+                    <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
+                    <a href="#"><i class="small mdi-content-flag"></i></a>
+                </div>
+
             {{/if}}
 
         </div>
