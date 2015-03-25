@@ -8,11 +8,15 @@ Template.skill.helpers({
 
 	hasValidated: function() {
 		var userId = Meteor.userId();
-		return $.inArray(userId, this.validations) > 0;
+		return $.inArray(userId, this.validations) !== -1;
 	},
 
 	profileUserIsLoggedUser: function() {
 		return Meteor.user().username === Session.get("currentProfileUsername");
+	},
+
+	validationCount: function() {
+		return this.validations.length;
 	}
 
 });
