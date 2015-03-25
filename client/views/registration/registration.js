@@ -17,37 +17,63 @@ Template.registerUser.created = function() {
 AutoForm.hooks({
     createUserForm: {
 
-        before: {
-            registerUser: function(doc, template) {
-                var skills = doc.skills;
-                if (skills) {
-                    skills.forEach(function(part, index, skills) {
-                        skills[index] = skills[index].toLowerCase();
+        onSubmit: function(insertDoc, updateDoc, currentDoc) {
+
+            event.preventDefault();
+
+            var name = $('#profile-name-create')[0].value;
+            var username = $('#profile-username-create')[0].value;
+            var email = $('#profile-email-create')[0].value;
+            var password = $('#profile-password-create')[0].value;
+            var userTitle = $('#profile-user-title-create')[0].value;
+            var bio = $('#profile-bio-create')[0].value;
+            var location = $('#profile-location-create')[0].value;
+            var skills = insertDoc.skills;        
+
+            var skillsObj = [];
+
+            if (skills) {
+                skills.forEach(function(part, index, skills) {
+                    skills[index] = skills[index].toLowerCase();
+                    skillsObj.push({
+                        name: skills[index],
+                        validations: []
                     });
-                    doc.skills = skills;
-                }
-
-                if (Session.get('imgUrl')) {
-                    doc.img = Session.get('imgUrl');
-                } else {
-                    doc.img = './public/images/default.jpg';
-                }
-
-                return doc;
+                });
             }
-        },
 
-        after: {
-            registerUser: function(error, result, template) {
-                if (!error) {
-                    Meteor.loginWithPassword(result.username, result.password, function(error) {
-                        if (!error) {
-                            alertify.success('Has registrado tu usuario');
-                            Router.go('dashboard');
-                        }
-                    });
-                }
+            if (Session.get('imgUrl')) {
+                insertDoc.img = Session.get('imgUrl');
+            } else {
+                insertDoc.img = './public/images/default.jpg';
             }
+
+            var img = insertDoc.img;
+
+            Meteor.call(
+                "registerUser",
+                name,
+                username,
+                email,
+                password,
+                userTitle,
+                bio,
+                location,
+                skillsObj,
+                img,
+                function(error, result) {
+                    if (!error) {
+                        Meteor.loginWithPassword(result.username, result.password, function(error) {
+                            if (!error) {
+                                alertify.success('Has registrado tu usuario');
+                                Router.go('dashboard');
+                            } 
+                        });
+                    } 
+                }
+            );
+
+            this.done();
         },
 
         onError: function(operation, error, template) {

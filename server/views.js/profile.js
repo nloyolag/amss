@@ -32,6 +32,37 @@ Meteor.methods({
         });
 
         return result;
-	}
+	},
+
+    /*
+    ===================================================
+    =  Server Method validateSkill                    =
+    =                                                 =
+    =  Arguments: Skill Name: String                  =
+    =             Validator Id: userId                =
+    =             profileUser: user object            =
+    =                                                 =
+    =  Returns:                                       =
+    =                                                 =
+    =  Description: Method that validates a skill     =
+    =  based on the logged in user Id                 =
+    =                                                 =
+    =  Used By: views/profile/skill.js                =
+    =           views/profile/skill.html              =
+    ===================================================
+    */
+
+    validateSkill: function(skillName, validatorId, profileUser) {
+
+        Meteor.users.update(
+        {
+            _id: profileUser._id,
+            "profile.skills.name": skillName
+        }, 
+        {
+            $push: { "profile.skills.$.validations": validatorId }
+        });
+
+    }
 
 });

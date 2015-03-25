@@ -1,0 +1,10 @@
+<template name="skill">
+	<p>{{this.name}}</p>
+
+	{{#unless hasValidated}}
+		{{#unless profileUserIsLoggedUser}}
+			<button id="validate-skill">Validate</button>
+		{{/unless}}
+	{{/unless}}
+
+</template>
