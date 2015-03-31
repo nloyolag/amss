@@ -54,6 +54,51 @@ AutoForm.hooks({
 
 		}
 
+	},
+
+	createMessageForm: {
+
+		onSubmit: function(insertDoc, updateDoc, currentDoc) {
+
+			event.preventDefault();
+
+			var message = insertDoc.message;
+			var participantsArr = [];
+			var from = Meteor.userId();
+			var to = Session.get("currentProfileId");
+			participantsArr.push(from);
+			participantsArr.push(to);
+			
+			var chat = Chats.findOne({ 'participants': { $all: participantsArr }});
+
+			if (chat) {
+
+				var messageObj = {
+					date: new Date(),
+					from: from,
+					to: to,
+					message: message
+				}
+				Meteor.call("addMessageToChat", messageObj, chat._id);
+
+			} else {
+
+				var messageArr = [];
+				messageArr.push({
+					date: new Date(),
+					from: from,
+					to: to,
+					message: message
+				});
+				Meteor.call("createChat", participantsArr, messageArr);
+
+			}
+
+			$('#create-chat').closeModal();
+			alertify.success("The message was sent succesfully");
+
+		}
+
 	}
 
 });
@@ -65,7 +110,14 @@ AutoForm.hooks({
 */
 
 Template.profileModals.helpers({
+
 	createTaskSchema: function() {
 		return Schema.createTask;
+	},
+
+	createMessageSchema: function() {
+		return Schema.createMessage;
 	}
+
+
 });

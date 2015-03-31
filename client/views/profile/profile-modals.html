@@ -26,5 +26,18 @@
 		{{/autoForm}}
 
 	</div>
+
+	<div id="create-chat" class="modal modal-fixed-footer">
+		<h4>Send Message</h4>
+
+		{{#autoForm id="createMessageForm" schema=createMessageSchema}}
+
+			{{> afQuickField name='message' id='create-chat-message' rows=2}}
+
+			<button type="submit">Submit</button>
+
+		{{/autoForm}}
+
+	</div>
 	
 </template>

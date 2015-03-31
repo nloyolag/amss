@@ -50,10 +50,14 @@ Template.profileInfo.helpers({
 Template.profileInfo.events({
 
     "click #task-me": function(event) {
-
     	event.preventDefault();
     	$('#create-task').openModal();
  		      
+    },
+
+    "click #message-me": function(event) {
+    	event.preventDefault();
+    	$('#create-chat').openModal();
     }
 
 });
