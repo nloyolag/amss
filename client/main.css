@@ -3318,6 +3318,14 @@ th {
   padding-top: 75px;
 }
 
+/* line 10, stylesheets/components/_cards.scss */
+.message_card {
+  color: #d4d4d4;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* line 1, stylesheets/layout/_header.scss */
 nav {
   background-color: #2E7D32 !important;
