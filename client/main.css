@@ -18,6 +18,12 @@
   margin-left: 95%;
 }
 
+/* line 17, stylesheets/helpers/_helpers.scss */
+.scrollabe {
+  overflow: scroll;
+  max-height: 250px;
+}
+
 /*
 ===============================
 =            Colors           =
