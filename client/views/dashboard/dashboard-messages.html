@@ -15,6 +15,9 @@
 			<div class="header">
 				<p>Messages</p>
 			</div>
+			{{#each chats}}
+            	{{> messageExcerpt}}
+            {{/each}}
 		</div>
 		<div class="dashboard-card-content"></div>
 	</div>

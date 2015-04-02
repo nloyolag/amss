@@ -96,7 +96,7 @@ AutoForm.hooks({
 
 			$('#create-chat').closeModal();
 			alertify.success("The message was sent succesfully");
-
+			this.done();
 		}
 
 	}

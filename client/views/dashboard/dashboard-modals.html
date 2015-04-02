@@ -42,4 +42,24 @@
 		<p>{{notificationTask.description}}</p>
 	</div>
 
+	<div id="view-conversation" class="modal modal-fixed-footer">
+		<h4>Messages</h4>
+	    <img src="{{chatPhoto}}" alt="chat pic">
+	    <h4>Chat with: {{chatUserName}}</h4>
+	    {{#each chatMessages}}
+	    	<p>{{> message}}</p>
+	    {{/each}}
+
+	    <h4>Send Message</h4>
+
+		{{#autoForm id="createMessageModalForm" schema=createMessageSchema}}
+
+			{{> afQuickField name='message' id='create-chat-message' rows=2}}
+
+			<button type="submit">Submit</button>
+
+		{{/autoForm}}
+
+	</div>
+
 </template>

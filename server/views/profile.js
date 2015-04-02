@@ -84,6 +84,7 @@ Meteor.methods({
         var result = Chats.insert({
             participants: participants,
             dateCreated: new Date(),
+            lastUpdated: new Date(),
             messages: messageArr
         });
 
@@ -106,13 +107,34 @@ Meteor.methods({
     */
 
     addMessageToChat: function(messageObj, chatId) {
+
         Chats.update(
         {
             _id: chatId
         }, 
         {
-            $push: { "messages": messageObj }
+            $push: { "messages": messageObj }          
         });
+
+        Chats.update(
+        {
+            _id: chatId
+        },
+        {
+            $set: { "lastUpdated": new Date() }
+        });
+
+        var messages = Chats.findOne(chatId).messages;
+        messages = _.sortBy(messages, 'date');
+
+        Chats.update(
+        {
+            _id: chatId
+        }, 
+        {
+            $set: { "messages": messages }
+        });
+
     }
 
 });
