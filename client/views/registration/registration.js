@@ -37,7 +37,8 @@ AutoForm.hooks({
                     skills[index] = skills[index].toLowerCase();
                     skillsObj.push({
                         name: skills[index],
-                        validations: []
+                        validations: [],
+                        evidences: []
                     });
                 });
             }
