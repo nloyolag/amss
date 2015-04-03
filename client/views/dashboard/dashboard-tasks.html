@@ -22,12 +22,18 @@
                     {{#each userTasksEmployee}}
 						{{> task isEmployee=true task=this}}
 					{{/each}}
+                    {{#unless userTasksEmployee}}
+                        <p class="message_card"><i class="mdi-social-person"></i>  You have no tasks</p>
+                    {{/unless}}
                 </div>
                 <div class="list">
                     <p class="title">Delegated</p>
                     {{#each userTasksEmployer}}
 						{{> task isEmployee=false task=this}}
 					{{/each}}
+                    {{#unless userTasksEmployer}}
+                        <p class="message_card"><i class="mdi-social-people"></i>  You have no tasks</p>
+                    {{/unless}}
                 </div>
             </div>
             <a href="#" class="right-position"><i class="small mdi-action-history"></i></a>

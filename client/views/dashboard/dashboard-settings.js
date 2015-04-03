@@ -14,9 +14,6 @@ Template.dashboardSettings.created = function() {
 */
 
 Template.dashboardSettings.rendered = function() {
-    $(document).ready(function() {
-        $('select').material_select();
-    });
 }
 
 /*
