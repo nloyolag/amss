@@ -5,7 +5,23 @@
 */
 
 Template.task.helpers({
-    
+
+    fromPhotoEmployer: function() {
+        return Meteor.users.findOne(this.task.employee).profile.img;
+    },
+
+    fromPhotoEmployee: function() {
+        return Meteor.users.findOne(this.task.employer).profile.img;
+    },
+
+    taskEmployeeURL: function(){
+        return Meteor.users.findOne(this.task.employer).username;
+    },
+
+    taskEmployerURL: function(){
+        return Meteor.users.findOne(this.task.employee).username;
+    },
+
     taskEmployer: function() {
     	return Meteor.users.findOne(this.task.employer).profile.name;
     },
@@ -46,7 +62,7 @@ Template.task.events({
 		$('#create-review').openModal();
         Session.set("reviewTaskId", this.task._id);
         Session.set("reviewToId", this.task.employee);
-	},
+    },
 
     'click .check-review': function(event) {
 
@@ -63,7 +79,7 @@ Template.task.events({
         var currentTask = this.task;
         console.l
         alertify.confirm(SURE_COMPLETE_TASK)
-            .set('onok', function() {
+        .set('onok', function() {
 
                 // Check for 4 types of completion notification
 
@@ -91,53 +107,53 @@ Template.task.events({
                             true,
                             OTHER_COMPLETED,
                             currentTask._id
-                        );
+                            );
 
                         Meteor.call(
                             "updateTaskStatus",
-                             currentTask._id,
-                             PENDING_COMPLETION,
-                             ON_GOING
-                        );
+                            currentTask._id,
+                            PENDING_COMPLETION,
+                            ON_GOING
+                            );
 
                         alertify.success(TASK_COMPLETED_FIRST);
 
                     // Case 2: Employee completed beforehand
-                    } else if (currentTask.employerStatus === ON_GOING &&
-                        currentTask.employeeStatus === PENDING_COMPLETION) {
+                } else if (currentTask.employerStatus === ON_GOING &&
+                    currentTask.employeeStatus === PENDING_COMPLETION) {
 
-                        var replacements = {
-                            "%OTHER%": Meteor.user().username,
-                            "%TASK%": currentTask.name
-                        }
-
-                        var notificationTitle = BOTH_COMPLETED_EMPLOYEE_NOTIFICATION;
-
-                        notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
-                            return replacements[all] || all;
-                        })
-
-                        Meteor.call("createNotification",
-                            notificationTitle,
-                            Meteor.userId(),
-                            currentTask.employee,
-                            true,
-                            BOTH_COMPLETED_EMPLOYEE,
-                            currentTask._id
-                        );
-
-                        Meteor.call(
-                            "updateTaskStatus",
-                             currentTask._id,
-                             PENDING_REVIEW,
-                             PENDING_REVIEW
-                        );
-
-                        alertify.success(TASK_COMPLETED_LAST_EMPLOYER);
-
+                    var replacements = {
+                        "%OTHER%": Meteor.user().username,
+                        "%TASK%": currentTask.name
                     }
 
-                } else if (currentTask.employee === Meteor.userId()) {
+                    var notificationTitle = BOTH_COMPLETED_EMPLOYEE_NOTIFICATION;
+
+                    notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+                        return replacements[all] || all;
+                    })
+
+                    Meteor.call("createNotification",
+                        notificationTitle,
+                        Meteor.userId(),
+                        currentTask.employee,
+                        true,
+                        BOTH_COMPLETED_EMPLOYEE,
+                        currentTask._id
+                        );
+
+                    Meteor.call(
+                        "updateTaskStatus",
+                        currentTask._id,
+                        PENDING_REVIEW,
+                        PENDING_REVIEW
+                        );
+
+                    alertify.success(TASK_COMPLETED_LAST_EMPLOYER);
+
+                }
+
+            } else if (currentTask.employee === Meteor.userId()) {
 
                     // Case 3: Employee first to complete
                     if (currentTask.employeeStatus === ON_GOING &&
@@ -161,58 +177,58 @@ Template.task.events({
                             true,
                             OTHER_COMPLETED,
                             currentTask._id
-                        );
+                            );
 
                         Meteor.call(
                             "updateTaskStatus",
-                             currentTask._id,
-                             ON_GOING,
-                             PENDING_COMPLETION
-                        );
+                            currentTask._id,
+                            ON_GOING,
+                            PENDING_COMPLETION
+                            );
 
                         alertify.success(TASK_COMPLETED_FIRST);
 
                     // Case 4: Employer completed beforehand
-                    } else if (currentTask.employeeStatus === ON_GOING &&
-                        currentTask.employerStatus === PENDING_COMPLETION) {
+                } else if (currentTask.employeeStatus === ON_GOING &&
+                    currentTask.employerStatus === PENDING_COMPLETION) {
 
-                        var replacements = {
-                            "%OTHER%": Meteor.user().username,
-                            "%TASK%": currentTask.name
-                        }
-
-                        var notificationTitle = BOTH_COMPLETED_EMPLOYER_NOTIFICATION;
-
-                        notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
-                            return replacements[all] || all;
-                        })
-
-                        Meteor.call("createNotification",
-                            notificationTitle,
-                            Meteor.userId(),
-                            currentTask.employer,
-                            true,
-                            BOTH_COMPLETED_EMPLOYER,
-                            currentTask._id
-                        );
-
-                        Meteor.call(
-                            "updateTaskStatus",
-                             currentTask._id,
-                             PENDING_REVIEW,
-                             PENDING_REVIEW
-                        );
-
-                        alertify.success(TASK_COMPLETED_LAST_EMPLOYEE);
-
+                    var replacements = {
+                        "%OTHER%": Meteor.user().username,
+                        "%TASK%": currentTask.name
                     }
+
+                    var notificationTitle = BOTH_COMPLETED_EMPLOYER_NOTIFICATION;
+
+                    notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+                        return replacements[all] || all;
+                    })
+
+                    Meteor.call("createNotification",
+                        notificationTitle,
+                        Meteor.userId(),
+                        currentTask.employer,
+                        true,
+                        BOTH_COMPLETED_EMPLOYER,
+                        currentTask._id
+                        );
+
+                    Meteor.call(
+                        "updateTaskStatus",
+                        currentTask._id,
+                        PENDING_REVIEW,
+                        PENDING_REVIEW
+                        );
+
+                    alertify.success(TASK_COMPLETED_LAST_EMPLOYEE);
 
                 }
 
-            })
-            .set('labels', {ok:'Accept', cancel:'Cancel'});
+            }
 
-    }
+        })
+.set('labels', {ok:'Accept', cancel:'Cancel'});
+
+}
 
 
 });
