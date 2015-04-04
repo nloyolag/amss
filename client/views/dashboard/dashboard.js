@@ -9,6 +9,19 @@ Template.dashboard.created = function() {
 			_id: Meteor.userId()
 		}).profile.skills;
 
+	var taskNum = Tasks.find({
+		employee: Meteor.userId()
+	}).count();
+
+	var completedTasks = Tasks.find(
+	{$and : [
+	{employee: Meteor.userId()},
+	{employeeStatus: "Done"}
+	]}
+	).count();
+
+	console.log(taskNum);
+	console.log(completedTasks);
 	var skillsNum = 0;
 	var evidenceNum = 0;
 	var validationNum = 0;
@@ -26,8 +39,6 @@ Template.dashboard.created = function() {
 
 	evidenceNum = evidences.length;
 	validationNum = validations.length;
-	console.log(skillsNum);
-	console.log(validationNum);
 
 	if(evidenceNum > skillsNum / 2) {
 		Meteor.call("addMerit", Meteor.userId(), "CertifiedTasker");
@@ -35,6 +46,10 @@ Template.dashboard.created = function() {
 
 	if(validationNum > skillsNum / 2) {
 		Meteor.call("addMerit", Meteor.userId(), "NotoriousTasker")
+	}
+
+	if(completedTasks > taskNum / 2) {
+		Meteor.call("addMerit", Meteor.userId(), "CommittedTasker");
 	}
 };
 
