@@ -17,10 +17,6 @@ Meteor.methods({
 
     addSkillEvidence: function(id, skill, img) {
 
-        console.log(id);
-        console.log(skill);
-        console.log(img);
-
         Meteor.users.update(
         {
             _id: id,

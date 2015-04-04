@@ -16,7 +16,7 @@ Meteor.methods({
     ===================================================
     */
 
-	registerUser: function(name, username, email, password, userTitle, bio, location, skills, img) {
+	registerUser: function(name, username, email, password, userTitle, bio, location, merits, skills, img) {
 
         var userId = Accounts.createUser({
             username: username,
@@ -27,6 +27,7 @@ Meteor.methods({
                 userTitle: userTitle,
                 bio: bio,
                 location: location,
+                merits: merits,
                 skills: skills,
                 img: img,
                 active: true
