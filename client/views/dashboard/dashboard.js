@@ -11,21 +11,30 @@ Template.dashboard.created = function() {
 
 	var skillsNum = 0;
 	var evidenceNum = 0;
+	var validationNum = 0;
 	var evidences = [];
+	var validations = [];
 
 	for(var p in skills) {
 		if(skills.hasOwnProperty(p)) 
 			skillsNum++;
 		if(skills[p].evidences.length > 0)
 			evidences.push(skills[p].evidences);
+		if(skills[p].validations.length > 0)
+			validations.push(skills[p].validations);
 	};
 
 	evidenceNum = evidences.length;
+	validationNum = validations.length;
 	console.log(skillsNum);
-	console.log(evidenceNum);
+	console.log(validationNum);
 
 	if(evidenceNum > skillsNum / 2) {
 		Meteor.call("addMerit", Meteor.userId(), "CertifiedTasker");
+	}
+
+	if(validationNum > skillsNum / 2) {
+		Meteor.call("addMerit", Meteor.userId(), "NotoriousTasker")
 	}
 };
 

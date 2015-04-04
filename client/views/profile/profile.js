@@ -7,8 +7,6 @@
 Template.profile.created = function() {
 	var username = Router.current().params.username;
 	Session.set("currentProfileUsername", username);
-	var user = Meteor.users.findOne({username: username});
-	Session.set("currentProfileId", user._id);
 };
 
 /*
