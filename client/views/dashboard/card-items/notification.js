@@ -64,7 +64,15 @@ Template.notification.helpers({
     	} else {
     		return false;
     	}
-    }, 
+    },
+
+    isReceivedMessage: function() {
+    	if (this.type === RECEIVED_MESSAGE) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    } 
 
 });
 

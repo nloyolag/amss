@@ -135,12 +135,18 @@ AutoForm.hooks({
 		onSubmit: function(insertDoc, updateDoc, currentDoc) {
 
 			event.preventDefault();
-
-			var message = insertDoc.message;
-			var from = Meteor.userId();
-			var to = Session.get("currentProfileId");
 			
 			var chat = Chats.findOne(Session.get("openChatId"));
+			var message = insertDoc.message;
+			var from = Meteor.userId();
+			var to;
+			var participants = chat.participants;
+
+			if (participants[0] == from) {
+				to = participants[1];
+			} else {
+				to = participants[0];
+			}
 
 			if (chat) {
 				var messageObj = {
@@ -151,6 +157,33 @@ AutoForm.hooks({
 				}
 				Meteor.call("addMessageToChat", messageObj, chat._id);
 			}
+
+			var excerpt;
+			if (message.length > 70) {
+				excerpt = message.substring(0,70);
+				excerpt = excerpt.concat("......");
+			} else {
+				excerpt = message;
+			}
+
+			var replacements = {
+				"%OTHER%": Meteor.user().username,
+				"%EXCERPT%": excerpt
+			}
+			var notificationTitle = RECEIVED_MESSAGE_NOTIFICATION;
+
+			notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+				return replacements[all] || all;
+			})
+
+			Meteor.call("createNotification",
+				notificationTitle,
+				from,
+				to,
+				true,
+				RECEIVED_MESSAGE,
+				""
+			);
 
 			this.done();
 		}
