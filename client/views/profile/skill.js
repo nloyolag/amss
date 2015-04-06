@@ -21,6 +21,20 @@ Template.skill.helpers({
 
 });
 
+Template.skill.rendered = function(){
+	$(".hover-skill").hover(
+		function () {
+			$(this).removeClass('mdi-action-favorite-outline');
+			$(this).addClass('mdi-action-favorite');
+		},
+		function () {
+			$(this).removeClass('mdi-action-favorite');
+			$(this).addClass('mdi-action-favorite-outline');
+		}
+	);
+};
+
+
 /*
 ===============================
 =           Events            =
@@ -40,7 +54,6 @@ Template.skill.events({
 		var skillName = this.name;
 
 		Meteor.call("validateSkill", skillName, validatorId, profileUser);
-
 	}
 
 });

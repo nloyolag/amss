@@ -10,14 +10,13 @@
 -->
 
 <template name="skill">
-	<p>{{this.name}}</p>
-
-	{{#unless hasValidated}}
+	<div class="single-skill">
+		<span class="skill-count">{{validationCount}}</span>
+		<span class="skill-name">{{this.name}}</span>
+		{{#unless hasValidated}}
 		{{#unless profileUserIsLoggedUser}}
-			<button id="validate-skill">Validate</button>
+		<a id="validate-skill" class="skill-button"><i class="hover-skill mdi-action-favorite-outline"></i><span class="help-validate valign-wrapper"> validate</span></a>
 		{{/unless}}
-	{{/unless}}
-
-	<p>{{validationCount}}</p>
-
+		{{/unless}}
+	</div>
 </template>

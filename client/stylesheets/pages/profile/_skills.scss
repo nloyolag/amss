@@ -1,0 +1,30 @@
+.single-skill{
+	display: inline-block;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	.skill-count{
+		font-size: 20px;
+		width: 10%;
+		display: inline-block;
+		text-align:center;
+	}
+	.skill-button{
+		display: inline-block;
+		font-size: 20px;
+		cursor: pointer;
+		.help-validate{
+			display: none;
+		}
+		.hover-skill:hover + .help-validate{
+			display: inline-block;
+			padding-left: 3px;
+			@include transition(all 0.3s ease-in-out);
+		}
+	}
+	.skill-name{
+		max-width: 50%;
+		display: inline-block;
+		font-size:20px;
+	}
+}

@@ -6,3 +6,10 @@
 	min-height: 150px;
 	padding-top: 75px;
 }
+
+.message_card{
+	color: darken(color('grey','lighten-3'),10%);
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+}

@@ -19,6 +19,9 @@
                 {{#each notifications}}
                     {{> notification}}
                 {{/each}}
+                {{#unless notifications}}
+                    <p class="message_card"><i class="mdi-social-notifications-off"></i>  You have no notifications</p>
+                {{/unless}}
             </div>
         </div>
     </div>

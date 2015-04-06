@@ -12,10 +12,14 @@
 
 <template name="task">
 	<div class="valign-wrapper">
-        <img src="http://www.adweek.com/galleycat/wp-content/uploads/sites/11/2013/01/image-3.jpg" alt="profile_pic" class="image responsive-img circle">
+		{{#if isEmployee}}
+        <img src="{{fromPhotoEmployee}}" alt="profile_pic" class="image responsive-img circle">
+        {{else}}
+        <img src="{{fromPhotoEmployer}}" alt="profile_pic" class="image responsive-img circle">
+        {{/if}}
         <div class="side-content">
 
-            <p>{{task.name}}</p>
+            <p class="truncate">{{task.name}}</p>
 
             {{#if isEmployee}}
 

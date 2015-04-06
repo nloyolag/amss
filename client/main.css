@@ -18,6 +18,24 @@
   margin-left: 95%;
 }
 
+/* line 17, stylesheets/helpers/_helpers.scss */
+.scrollabe {
+  overflow: scroll;
+  max-height: 250px;
+}
+
+/* line 22, stylesheets/helpers/_helpers.scss */
+.seventy-width {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 30, stylesheets/helpers/_helpers.scss */
+.select2-container {
+  min-width: 100%;
+}
+
 /*
 ===============================
 =            Colors           =
@@ -3306,6 +3324,12 @@ th {
 .dashboard-card-content .list .side-content .pending-review {
   color: #ffb300;
 }
+/* line 37, stylesheets/components/_task-list.scss */
+.dashboard-card-content .list .valign-wrapper:nth-child(n+3) {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(137, 137, 137, 0.3);
+}
 
 /* line 1, stylesheets/components/_cards.scss */
 .dashboard-card-content {
@@ -3316,6 +3340,14 @@ th {
 .dashboard-card {
   min-height: 150px;
   padding-top: 75px;
+}
+
+/* line 10, stylesheets/components/_cards.scss */
+.message_card {
+  color: #d4d4d4;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* line 1, stylesheets/layout/_header.scss */
@@ -3340,6 +3372,27 @@ body {
   background-color: #e0e0e0;
   font-family: roboto;
   padding-top: 80px;
+}
+
+/* line 1, stylesheets/pages/_login.scss */
+.logo_login {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
+/* line 9, stylesheets/pages/_login.scss */
+#login-form .input-field {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 14, stylesheets/pages/_login.scss */
+#login-form .btn-large {
+  min-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* line 1, stylesheets/pages/profile/_info.scss */
@@ -3419,7 +3472,47 @@ body {
   margin-bottom: 4px;
 }
 
-/* line 3, stylesheets/pages/_profile.scss */
+/* line 1, stylesheets/pages/profile/_skills.scss */
+.single-skill {
+  display: inline-block;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 6, stylesheets/pages/profile/_skills.scss */
+.single-skill .skill-count {
+  font-size: 20px;
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+}
+/* line 12, stylesheets/pages/profile/_skills.scss */
+.single-skill .skill-button {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* line 16, stylesheets/pages/profile/_skills.scss */
+.single-skill .skill-button .help-validate {
+  display: none;
+}
+/* line 19, stylesheets/pages/profile/_skills.scss */
+.single-skill .skill-button .hover-skill:hover + .help-validate {
+  display: inline-block;
+  padding-left: 3px;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 25, stylesheets/pages/profile/_skills.scss */
+.single-skill .skill-name {
+  max-width: 50%;
+  display: inline-block;
+  font-size: 20px;
+}
+
+/* line 4, stylesheets/pages/_profile.scss */
 .content-90 {
   margin-top: 20px;
   margin-left: 3%;
@@ -3433,7 +3526,7 @@ body {
 /* line 3, stylesheets/pages/profile/_cards.scss */
 .green-header-card .header {
   color: #fafafa;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
   background-color: #4CAF50;
   position: absolute;
@@ -3442,13 +3535,14 @@ body {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+  text-transform: uppercase;
 }
-/* line 14, stylesheets/pages/profile/_cards.scss */
+/* line 15, stylesheets/pages/profile/_cards.scss */
 .green-header-card .header p {
   margin-left: 20px;
   display: inline;
 }
-/* line 18, stylesheets/pages/profile/_cards.scss */
+/* line 19, stylesheets/pages/profile/_cards.scss */
 .green-header-card .header .single-action {
   display: inline;
   margin-left: 88%;
