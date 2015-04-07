@@ -34,8 +34,14 @@ Template.dashboard.created = function() {
 	]
 	}).count();
 
-	console.log(reviewsNum);
-	console.log(positiveReviews);
+	var dateCreated = Meteor.users.findOne({
+		_id: Meteor.userId()
+	}).createdAt;
+
+	var daysPassed = (new Date() - dateCreated) / 86400000;
+
+	console.log(daysPassed);
+
 	var skillsNum = 0;
 	var evidenceNum = 0;
 	var validationNum = 0;
@@ -76,6 +82,12 @@ Template.dashboard.created = function() {
 		Meteor.call("assignMerit", Meteor.userId(), "AllStarTasker");
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "AllStarTasker");
+	}
+
+	if(daysPassed >= 360) {
+		Meteor.call("assignMerit", Meteor.userId(), "VeteranTasker");
+	} else {
+		Meteor.call("unassignMerit", Meteor.userId(), "VeteranTasker");
 	}
 };
 
