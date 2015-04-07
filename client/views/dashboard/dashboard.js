@@ -20,8 +20,22 @@ Template.dashboard.created = function() {
 	]}
 	).count();
 
-	console.log(taskNum);
-	console.log(completedTasks);
+	var reviewsNum = Reviews.find({
+		to: Meteor.userId()
+	}).count();
+
+	var positiveReviews = Reviews.find(
+	{$and : [
+		{to: Meteor.userId()},
+		{$or : [
+			{score: 4},
+			{score: 5}
+		]}
+	]
+	}).count();
+
+	console.log(reviewsNum);
+	console.log(positiveReviews);
 	var skillsNum = 0;
 	var evidenceNum = 0;
 	var validationNum = 0;
@@ -40,16 +54,28 @@ Template.dashboard.created = function() {
 	evidenceNum = evidences.length;
 	validationNum = validations.length;
 
-	if(evidenceNum > skillsNum / 2) {
-		Meteor.call("addMerit", Meteor.userId(), "CertifiedTasker");
+	if(evidenceNum > (skillsNum / 2)) {
+		Meteor.call("assignMerit", Meteor.userId(), "CertifiedTasker");
+	} else {
+		Meteor.call("unassignMerit", Meteor.userId(), "CertifiedTasker");
 	}
 
-	if(validationNum > skillsNum / 2) {
-		Meteor.call("addMerit", Meteor.userId(), "NotoriousTasker")
+	if(validationNum > (skillsNum / 2)) {
+		Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker")
+	} else {
+		Meteor.call("unassignMerit", Meteor.userId(), "NotoriousTasker")
 	}
 
-	if(completedTasks > taskNum / 2) {
-		Meteor.call("addMerit", Meteor.userId(), "CommittedTasker");
+	if(completedTasks > (taskNum / 2)) {
+		Meteor.call("assignMerit", Meteor.userId(), "CommittedTasker");
+	} else {
+		Meteor.call("unassignMerit", Meteor.userId(), "CommittedTasker");
+	}
+
+	if(positiveReviews > (reviewsNum / 2)) {
+		Meteor.call("assignMerit", Meteor.userId(), "AllStarTasker");
+	} else {
+		Meteor.call("unassignMerit", Meteor.userId(), "AllStarTasker");
 	}
 };
 

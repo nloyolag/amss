@@ -40,7 +40,7 @@ Meteor.methods({
 		Tasks.update(taskId, {$set: {employeeStatus: employeeStatus}});
 	},
 
-	addMerit: function(userId, merit) {
+	assignMerit: function(userId, merit) {
 
         Meteor.users.update(
         {
@@ -49,6 +49,18 @@ Meteor.methods({
         }, 
         {
             $set: { "profile.merits.$.active": 1 }
+        });
+	},
+
+	unassignMerit: function(userId, merit) {
+
+        Meteor.users.update(
+        {
+            _id: userId,
+            "profile.merits.name": merit
+        }, 
+        {
+            $set: { "profile.merits.$.active": 0 }
         });
 	}
 
