@@ -12,18 +12,18 @@
 <template name="dashboardModals">
 
 	<div id="create-review" class="modal modal-fixed-footer">
-	    <h4>Create Review</h4>
+		<h4>Create Review</h4>
 
-	    {{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
+		{{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
 
-			{{> afQuickField name='title' id='create-review-title'}}
-			{{> afQuickField name='description' id='create-review-description' rows=2}}
-			{{> afQuickField name='score' id='create-review-score'}}
-			{{> afQuickField name='task' id='create-review-task'}}
-			{{> afQuickField name='to' id='create-review-to'}}
-			{{> afQuickField name='from' id='create-review-from'}}
+		{{> afQuickField name='title' id='create-review-title'}}
+		{{> afQuickField name='description' id='create-review-description' rows=2}}
+		{{> afQuickField name='score' id='create-review-score'}}
+		{{> afQuickField name='task' id='create-review-task'}}
+		{{> afQuickField name='to' id='create-review-to'}}
+		{{> afQuickField name='from' id='create-review-from'}}
 
-			<button type="submit">Submit</button>
+		<button type="submit">Submit</button>
 
 		{{/autoForm}}
 
@@ -31,9 +31,9 @@
 
 	<div id="view-review" class="modal modal-fixed-footer">
 		<h4>Review</h4>
-	    <p>{{review.title}}</p>
-	    <p>{{review.description}}</p>
-	    <p>{{review.score}}</p>	    
+		<p>{{review.title}}</p>
+		<p>{{review.description}}</p>
+		<p>{{review.score}}</p>	    
 	</div>
 
 	<div id="view-notification-task" class="modal modal-fixed-footer">
@@ -42,23 +42,24 @@
 		<p>{{notificationTask.description}}</p>
 	</div>
 
-	<div id="view-conversation" class="modal modal-fixed-footer">
-		<h4>Messages</h4>
-	    <img src="{{chatPhoto}}" alt="chat pic">
-	    <h4>Chat with: {{chatUserName}}</h4>
-	    {{#each chatMessages}}
-	    	<p>{{> message}}</p>
-	    {{/each}}
-
-	    <h4>Send Message</h4>
-
-		{{#autoForm id="createMessageModalForm" schema=createMessageSchema}}
+	<div id="view-conversation" class="modal modal-fixed-footer chat-window">
+		<div class="modal-header">
+			<span>{{chatUserName}}</span>
+		</div>
+		<div class="modal-content">
+			{{#each chatMessages}}
+			<p>{{> message}}</p>
+			{{/each}}
+		</div>
+		<div class="modal-footer">
+			{{#autoForm id="createMessageModalForm" schema=createMessageSchema}}
 
 			{{> afQuickField name='message' id='create-chat-message' rows=2}}
 
-			<button type="submit">Submit</button>
+			<button type="submit" class="send-message waves-effect waves-light btn"><i class="mdi-content-send"></i>Answer</button>
 
-		{{/autoForm}}
+			{{/autoForm}}
+		</div>
 
 	</div>
 
