@@ -10,7 +10,11 @@
 -->
 
 <template name="message">
-	<img src="{{messagePhoto}}">
-	<h5>{{messageUserName}}</h5>
-	{{this.message}}
+	<div class="single-message">
+		<img src="{{messagePhoto}}" class="circle responsive-img chat-head">
+		<div class="side-content">
+			<span class="from">{{messageUserName}}</span>
+			<p class="content">{{this.message}}</p>
+		</div>
+	</div>
 </template>

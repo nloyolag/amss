@@ -3512,7 +3512,118 @@ body {
   font-size: 20px;
 }
 
-/* line 4, stylesheets/pages/_profile.scss */
+/* line 1, stylesheets/pages/profile/_messages.scss */
+.message-Excerpt {
+  display: inline-block;
+  margin-top: 10px;
+  max-width: 100%;
+  max-height: 0px;
+}
+/* line 6, stylesheets/pages/profile/_messages.scss */
+.message-Excerpt .chat-img {
+  width: 15%;
+  display: inline-block;
+  margin-left: 10px;
+}
+/* line 11, stylesheets/pages/profile/_messages.scss */
+.message-Excerpt .side-content {
+  width: 79%;
+  max-width: 79%;
+  display: inline-block;
+  margin-left: 20px;
+}
+/* line 16, stylesheets/pages/profile/_messages.scss */
+.message-Excerpt .side-content .chat-from {
+  font-weight: 500;
+  display: inline-block;
+  font-size: 1.5em;
+  width: 100%;
+}
+/* line 22, stylesheets/pages/profile/_messages.scss */
+.message-Excerpt .side-content .chat-Excerpt {
+  width: 100%;
+  color: #616161;
+}
+
+/* line 29, stylesheets/pages/profile/_messages.scss */
+.chat-window {
+  max-height: 80% !important;
+  height: 80% !important;
+}
+/* line 32, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #e0e0e0;
+  min-width: 100%;
+  min-height: 55px;
+  padding-top: 17px;
+}
+/* line 41, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-header span {
+  font-size: 2em;
+  font-weight: 500;
+  margin-left: 20px;
+  color: #757575;
+}
+/* line 48, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-content {
+  padding-top: 50px !important;
+  padding-bottom: 130px !important;
+  display: inline-block;
+}
+/* line 53, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-footer {
+  min-height: 130px !important;
+  background-color: #e0e0e0;
+}
+/* line 56, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-footer textarea {
+  resize: none;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+}
+/* line 62, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-footer textarea:focus {
+  border-bottom: 3px solid #00bfa5;
+}
+/* line 65, stylesheets/pages/profile/_messages.scss */
+.chat-window .modal-footer .send-message {
+  width: 100%;
+}
+
+/* line 71, stylesheets/pages/profile/_messages.scss */
+.single-message {
+  display: inline-block;
+}
+/* line 73, stylesheets/pages/profile/_messages.scss */
+.single-message .chat-head {
+  width: 10%;
+}
+/* line 76, stylesheets/pages/profile/_messages.scss */
+.single-message .side-content {
+  width: 79%;
+  max-width: 79%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+/* line 82, stylesheets/pages/profile/_messages.scss */
+.single-message .side-content .from {
+  font-size: 1em;
+  font-weight: 500;
+  color: #00bfa5;
+}
+/* line 87, stylesheets/pages/profile/_messages.scss */
+.single-message .side-content .content {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+/* line 5, stylesheets/pages/_profile.scss */
 .content-90 {
   margin-top: 20px;
   margin-left: 3%;

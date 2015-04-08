@@ -10,8 +10,12 @@
 -->
 
 <template name="messageExcerpt">
-	<img src="{{chatPhoto}}" alt="chat pic">
-	<h4>{{chatUserName}}</h4>
-	<p>{{chatExcerpt}}</p>
-	<a href="#" class="show-conversation"><i class="small mdi-navigation-more-horiz"></i></a>
+	<div class="message-Excerpt">
+		<img src="{{chatPhoto}}" alt="chat pic" class="chat-img circle responsive-img">
+		<div class="side-content">
+			<span class="chat-from">{{chatUserName}}</span>
+			<div class="chat-Excerpt"><span class="truncate">{{chatExcerpt}}</span></div>
+			<a href="#" class="show-conversation"><i class="small mdi-navigation-more-horiz"></i></a>
+		</div>
+	</div>
 </template>
