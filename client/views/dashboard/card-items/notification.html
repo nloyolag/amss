@@ -21,7 +21,6 @@
                 <div class="actions">
                     <a href="#" class="confirm-start-task"><i class="small mdi-action-done"></i></a>
                     <a href="#" class="dismiss-start-task"><i class="small mdi-content-clear"></i></a>
-                    <a href="#" ><i class="small mdi-content-flag"></i></a>
                     <a href="#" class="show-task-description"><i class="small mdi-navigation-more-horiz"></i></a>
                 </div>
 
@@ -29,7 +28,6 @@
 
                 <div class="actions">
                     <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                     <a href="#" class="check-review"><i class="small mdi-navigation-more-horiz"></i></a>
                 </div>
 
@@ -37,14 +35,12 @@
 
                 <div class="actions">
                     <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                 </div>
 
             {{/if}} {{#if isTaskAccepted}}
 
                 <div class="actions">
                     <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                 </div>
 
             {{/if}} {{#if isOtherCompleted}}
@@ -52,7 +48,6 @@
                 <div class="actions">
                     <a href="#" class="complete-task-other"><i class="small mdi-action-done"></i></a>
                     <a href="#" class="dismiss-notification"><i class="small mdi-content-clear"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                     <a href="#" class="show-task-description"><i class="small mdi-navigation-more-horiz"></i></a>
                 </div>
 
@@ -60,7 +55,6 @@
 
                 <div class="actions">
                     <a href="#" class="do-review"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                     <a href="#" class="show-task-description"><i class="small mdi-navigation-more-horiz"></i></a>
                 </div>
 
@@ -68,14 +62,18 @@
 
                 <div class="actions">
                     <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
                 </div>
 
             {{/if}} {{#if isReceivedMessage}}
 
                 <div class="actions">
                     <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
-                    <a href="#"><i class="small mdi-content-flag"></i></a>
+                </div>
+
+            {{/if}} {{#if isSkillValidation}}
+
+                <div class="actions">
+                    <a href="#" class="dismiss-notification"><i class="small mdi-action-done"></i></a>
                 </div>
 
             {{/if}}
