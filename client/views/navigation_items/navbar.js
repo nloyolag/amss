@@ -18,6 +18,25 @@ Template.navbar.rendered = function() {
     });
 }
 
+/*
+===============================
+=           Helpers           =
+===============================
+*/
+
+Template.navbar.helpers({
+
+    hasNotifications: function() {
+        var notification = Notifications.findOne();
+        if (notification) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+});
+
 
 /*
 ===============================

@@ -22,8 +22,17 @@
                 <a href="/dashboard" class="brand-logo center">TASKME</a>
            <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/profile/{{ currentUser.username }}">{{ currentUser.username }}</a></li>
-            <li><i class="mdi-social-notifications-none"></i>
-            </li>
+
+            {{#if hasNotifications}}
+                <a href="/dashboard">
+                    <li><i class="mdi-social-notifications"></i></li>
+                </a>
+            {{else}}
+                <a href="/dashboard">
+                    <li><i class="mdi-social-notifications-none"></i></li>
+                </a>
+            {{/if}}
+            
             <li>
                 <a class='dropdown-button' href='#' data-activates='dropdown-navbar'><i class="mdi-action-settings"></i></a>
             </li>
