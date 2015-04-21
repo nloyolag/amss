@@ -82,7 +82,7 @@ Template.dashboard.created = function() {
 		Meteor.call("unassignMerit", Meteor.userId(), "AllStarTasker");
 	}
 
-	if(daysPassed >= 2) {
+	if(daysPassed >= 360) {
 		Meteor.call("assignMerit", Meteor.userId(), "VeteranTasker");
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "VeteranTasker");
