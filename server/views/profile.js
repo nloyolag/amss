@@ -63,6 +63,78 @@ Meteor.methods({
             $push: { "profile.skills.$.validations": validatorId }
         });
 
+    },
+
+    /*
+    ===================================================
+    =  Server Method createChat                       =
+    =                                                 =
+    =  Arguments: participants: [userId]              =   
+    =             messageArr: [message]               =
+    =                                                 =
+    =  Returns: Chat ID                               =
+    =                                                 =
+    =  Description: Method that creates a new chat    =
+    =                                                 =
+    =  Used By: views/profile/profile-modals.js       =
+    ===================================================
+    */
+
+    createChat: function(participants, messageArr) {
+        var result = Chats.insert({
+            participants: participants,
+            dateCreated: new Date(),
+            lastUpdated: new Date(),
+            messages: messageArr
+        });
+
+        return result;
+    },
+
+    /*
+    ===================================================
+    =  Server Method addMessageToChat                 =
+    =                                                 =
+    =  Arguments: messageObj: message obj             =   
+    =             chatId: Chat ID                     =
+    =  Returns:                                       =
+    =                                                 =
+    =  Description: Method that adds a message to an  =
+    =               existing chat                     =
+    =                                                 =
+    =  Used By: views/profile/profile-modals.js       =
+    ===================================================
+    */
+
+    addMessageToChat: function(messageObj, chatId) {
+
+        Chats.update(
+        {
+            _id: chatId
+        }, 
+        {
+            $push: { "messages": messageObj }          
+        });
+
+        Chats.update(
+        {
+            _id: chatId
+        },
+        {
+            $set: { "lastUpdated": new Date() }
+        });
+
+        var messages = Chats.findOne(chatId).messages;
+        messages = _.sortBy(messages, 'date');
+
+        Chats.update(
+        {
+            _id: chatId
+        }, 
+        {
+            $set: { "messages": messages }
+        });
+
     }
 
 });

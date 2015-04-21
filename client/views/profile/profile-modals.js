@@ -54,6 +54,78 @@ AutoForm.hooks({
 
 		}
 
+	},
+
+	createMessageForm: {
+
+		onSubmit: function(insertDoc, updateDoc, currentDoc) {
+
+			event.preventDefault();
+
+			var message = insertDoc.message;
+			var participantsArr = [];
+			var from = Meteor.userId();
+			var to = Session.get("currentProfileId");
+			participantsArr.push(from);
+			participantsArr.push(to);
+			
+			var chat = Chats.findOne({ 'participants': { $all: participantsArr }});
+
+			if (chat) {
+
+				var messageObj = {
+					date: new Date(),
+					from: from,
+					to: to,
+					message: message
+				}
+				Meteor.call("addMessageToChat", messageObj, chat._id);
+
+			} else {
+
+				var messageArr = [];
+				messageArr.push({
+					date: new Date(),
+					from: from,
+					to: to,
+					message: message
+				});
+				Meteor.call("createChat", participantsArr, messageArr);
+
+			}
+
+			var excerpt;
+			if (message.length > 70) {
+				excerpt = message.substring(0,70);
+				excerpt = excerpt.concat("......");
+			} else {
+				excerpt = message;
+			}
+
+			var replacements = {
+				"%OTHER%": Meteor.user().username,
+				"%EXCERPT%": excerpt
+			}
+			var notificationTitle = RECEIVED_MESSAGE_NOTIFICATION;
+
+			notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+				return replacements[all] || all;
+			})
+
+			Meteor.call("createNotification",
+				notificationTitle,
+				from,
+				to,
+				true,
+				RECEIVED_MESSAGE,
+				""
+			);
+
+			$('#create-chat').closeModal();
+			alertify.success("The message was sent succesfully");
+			this.done();
+		}
+
 	}
 
 });
@@ -65,7 +137,14 @@ AutoForm.hooks({
 */
 
 Template.profileModals.helpers({
+
 	createTaskSchema: function() {
 		return Schema.createTask;
+	},
+
+	createMessageSchema: function() {
+		return Schema.createMessage;
 	}
+
+
 });
