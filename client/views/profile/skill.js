@@ -54,6 +54,26 @@ Template.skill.events({
 		var skillName = this.name;
 
 		Meteor.call("validateSkill", skillName, validatorId, profileUser);
+
+		var replacements = {
+			"%OTHER%": Meteor.user().username,
+			"%SKILL%": skillName
+		}
+		var notificationTitle = SKILL_VALIDATION_NOTIFICATION;
+
+		notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+			return replacements[all] || all;
+		});
+
+		Meteor.call(
+			"createNotification",
+			notificationTitle,
+			Meteor.userId(),
+			Session.get('currentProfileId'),
+			true,
+			SKILL_VALIDATION,
+			""
+		);
 	}
 
 });

@@ -72,6 +72,14 @@ Template.notification.helpers({
     	} else {
     		return false;
     	}
+    },
+
+    isSkillValidation: function() {
+    	if (this.type === SKILL_VALIDATION) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     } 
 
 });

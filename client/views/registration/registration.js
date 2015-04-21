@@ -28,7 +28,29 @@ AutoForm.hooks({
             var userTitle = $('#profile-user-title-create')[0].value;
             var bio = $('#profile-bio-create')[0].value;
             var location = $('#profile-location-create')[0].value;
-            var skills = insertDoc.skills;        
+            var skills = insertDoc.skills;  
+
+            var merits = [{
+                name: "VeteranTasker",
+                icon: "null",
+                active: 0
+            }, {
+                name: "CertifiedTasker",
+                icon: "null",
+                active: 0
+            }, {
+                name: "NotoriousTasker",
+                icon: "null",
+                active: 0
+            }, {
+                name: "CommittedTasker",
+                icon: "null",
+                active: 0
+            }, {
+                name: "AllStarTasker",
+                icon: "null",
+                active: 0
+            }];  
 
             var skillsObj = [];
 
@@ -60,6 +82,7 @@ AutoForm.hooks({
                 userTitle,
                 bio,
                 location,
+                merits,
                 skillsObj,
                 img,
                 function(error, result) {
