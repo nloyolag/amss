@@ -23,7 +23,7 @@
 				<p>Evidence:
 					{{#each evidences}}
 					<img src={{this}} style="width:100px;height:100px">
-					<button data-evidence={{evidence}} class="deleteSkillEvidence">Delete</button>
+					<a href="" role="button" data-name={{evidence}} data-evidence={{this}} class="deleteSkillEvidence">Delete</a>
 					{{/each}}
 				</p>
 				{{/each}}

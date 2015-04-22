@@ -59,8 +59,11 @@ Template.profileInfo.helpers({
 			]}
 		]
 		}).count();
-
-		return positiveReviews/totalReviews.toFixed(2);
+		if(totalReviews == 0) {
+			return 0;
+		} else {
+			return positiveReviews/totalReviews.toFixed(2) * 100;
+		}
 	}
 
 });

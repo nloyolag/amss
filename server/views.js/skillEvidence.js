@@ -26,6 +26,18 @@ Meteor.methods({
             $push: { "profile.skills.$.evidences": img }
         });
 
+    },
+
+    deleteEvidence: function(id, evidence) {
+
+        Meteor.users.update(
+        {
+            _id: id,
+            "profile.skills.evidences": skill
+        }, 
+        {
+            $push: { "profile.skills.$.evidences": img }
+        }); 
     }
 
 });
