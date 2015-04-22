@@ -15,8 +15,8 @@ Template.dashboard.created = function() {
 	}
 
 	var skills = Meteor.users.findOne({
-			_id: Meteor.userId()
-		}).profile.skills;
+		_id: Meteor.userId()
+	}).profile.skills;
 
 	var taskNum = Tasks.find({
 		employee: Meteor.userId()
@@ -67,35 +67,80 @@ Template.dashboard.created = function() {
 	evidenceNum = evidences.length;
 	validationNum = validations.length;
 
+	var wasMeritAssigned = false;
+	var assignedMerits = [];
+	var assignedMeritsDescription = [];
+
 	if(evidenceNum > (skillsNum / 2)) {
 		Meteor.call("assignMerit", Meteor.userId(), "CertifiedTasker");
+		wasMeritAssigned = true;
+		assignedMerits.push("Certified Tasker");
+		assignedMeritsDescription.push(CERTIFIED_DESCRIPTION);
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "CertifiedTasker");
 	}
 
 	if(validationNum > (skillsNum / 2)) {
-		Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker")
+		Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker");
+		wasMeritAssigned = true;
+		assignedMerits.push("Notorious Tasker");
+		assignedMeritsDescription.push(NOTORIOUS_DESCRIPTION);
 	} else {
-		Meteor.call("unassignMerit", Meteor.userId(), "NotoriousTasker")
+		Meteor.call("unassignMerit", Meteor.userId(), "NotoriousTasker");
 	}
 
 	if(completedTasks > (taskNum / 2)) {
 		Meteor.call("assignMerit", Meteor.userId(), "CommittedTasker");
+		wasMeritAssigned = true;
+		assignedMerits.push("Commited Tasker");
+		assignedMeritsDescription.push(COMMITTED_DESCRIPTION);
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "CommittedTasker");
 	}
 
 	if(positiveReviews > (reviewsNum / 2)) {
 		Meteor.call("assignMerit", Meteor.userId(), "AllStarTasker");
+		wasMeritAssigned = true;
+		assignedMerits.push("All Star Tasker");
+		assignedMeritsDescription.push(ALLSTAR_DESCRIPTION);
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "AllStarTasker");
 	}
 
 	if(daysPassed >= 360) {
 		Meteor.call("assignMerit", Meteor.userId(), "VeteranTasker");
+		wasMeritAssigned = true;
+		assignedMerits.push("Veteran Tasker");
+		assignedMeritsDescription.push(VETERAN_DESCRIPTION);
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "VeteranTasker");
 	}
+
+	if (wasMeritAssigned) {
+		for (var i = 0; i < assignedMerits.length; i++) {
+
+			var replacements = {
+				"%NAME%": assignedMerits[i],
+				"%DESCRIPTION%": assignedMeritsDescription[i]
+			}
+			var notificationTitle = MERIT_NOTIFICATION;
+
+			notificationTitle = notificationTitle.replace(/%\w+%/g, function(all) {
+				return replacements[all] || all;
+			})
+
+			Meteor.call("createNotification",
+				notificationTitle,
+				Meteor.userId(),
+				Meteor.userId(),
+				true,
+				MERIT,
+				""
+			);
+
+		}
+	}
+
 };
 
 /*
