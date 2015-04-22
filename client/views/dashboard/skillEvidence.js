@@ -8,9 +8,18 @@ Template.skillEvidence.created = function() {
 };
 /*
 ===============================
-=            Forms            =
+=          Rendered           =
 ===============================
 */
+
+Template.skillEvidence.rendered = function() {
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+          accordion : false 
+      });
+    });
+    $('a[class=evidenceImages]').fancybox();
+}
 
 /*
 ===============================
@@ -60,7 +69,7 @@ AutoForm.hooks({
         },
 
         onError: function(operation, error, template) {
-            
+
         }
 
     }
@@ -74,11 +83,16 @@ AutoForm.hooks({
 */
 
 Template.skillEvidence.events({
-'click .deleteSkillEvidence': function(){
-    var id = Meteor.userId();
-    var evidence = event.target.dataset.evidence;
+    'click .deleteSkillEvidence': function(){
+        var id = Meteor.userId();
+        var evidence = event.target.dataset.evidence;
     //Meteor.call("deleteEvidence", evidence);
-}});
+    },
+
+    'click a[class=evidenceImages]' : function(e){
+        e.preventDefault();
+    }
+});
 
 Meteor.startup(function() {
     Uploader.finished = function(index, fileInfo, templateContext) {

@@ -12,6 +12,20 @@ Template.userEvidences.created = function() {
 
 /*
 ===============================
+=          Rendered          =
+===============================
+*/
+
+Template.userEvidences.rendered = function() {
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+          accordion : false
+      });
+    });
+}
+
+/*
+===============================
 =           Helpers           =
 ===============================
 */

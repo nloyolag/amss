@@ -3,7 +3,7 @@
 =           Created           =
 ===============================
 */
-Template.skillEvidence.created = function() {
+Template.skillEvidence2.created = function() {
 
 };
 /*
@@ -18,7 +18,7 @@ Template.skillEvidence.created = function() {
 ===============================
 */
 
-Template.skillEvidence.helpers({
+Template.skillEvidence2.helpers({
     userSkills: function() {
         return Meteor.users.findOne({
             _id: Meteor.userId()
@@ -27,7 +27,7 @@ Template.skillEvidence.helpers({
 
 });
 
-Template.skillEvidence.helpers({
+Template.skillEvidence2.helpers({
     addEvidenceSchema: function() {
         return Schema.addEvidence;
     }

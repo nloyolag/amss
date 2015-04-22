@@ -10,15 +10,20 @@
 -->
 
 <template name="userEvidences">
-	<p>MY SKILLS EVIDENCES</p>
 
-	{{#each userSkills}}
-		<p>Skill: {{name}}</p>
-		<p>Evidence:
-		{{#each evidences}}
-			<img src={{this}} style="width:100px;height:100px">
-		{{/each}}
-		</p>
-	{{/each}}
-
+	<div class="card-panel green-header-card dashboard-card"> 
+		<div class="header">
+			<p>My skills evidence</p>
+		</div>
+		<div class="dashboard-card-content">
+			{{#each userSkills}}
+			<p>Skill: {{name}}</p>
+			<p>Evidence:
+				{{#each evidences}}
+				<img src={{this}} style="width:100px;height:100px">
+				{{/each}}
+			</p>
+			{{/each}}
+		</div>
+	</div>
 </template>

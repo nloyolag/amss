@@ -18,15 +18,22 @@
 			</div>
 			<div class="dashboard-card-content">
 
-				{{#each userSkills}}
-				<p>Skill: {{name}}</p>
-				<p>Evidence:
-					{{#each evidences}}
-					<img src={{this}} style="width:100px;height:100px">
-					<a href="" role="button" data-name={{evidence}} data-evidence={{this}} class="deleteSkillEvidence">Delete</a>
+				<ul class="collapsible" data-collapsible="expandable">
+					{{#each userSkills}}
+					<li>
+						<div class="collapsible-header">{{name}}</div>
+						<div class="collapsible-body">
+							<p>
+								{{#each evidences}}
+								
+								<a href={{this}} class='evidenceImages'><img src={{this}} style="width:100px;height:100px"></a>
+								<a href="" role="button" data-name={{evidence}} data-evidence={{this}} class="deleteSkillEvidence">Delete</a>
+								{{/each}}
+							</p>
+						</div>
+					</li>
 					{{/each}}
-				</p>
-				{{/each}}
+				</ul>
 
 
 				<p>UPLOAD YOUR SKILL EVIDENCE!</p>
