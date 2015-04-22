@@ -52,8 +52,8 @@ Template.login.events({
 
                 } else {
 
-                    alertify.error('Your account is not active. Contact the Task Me team');
-                    Meteor.logout();
+                    alertify.alert('Welcome back! Your account has been reactivated.');
+                    Router.go('dashboard');
                 }
             }
         })

@@ -5,6 +5,17 @@
 */
 
 Template.dashboard.created = function() {
+
+	var isActive = Meteor.users.findOne({
+		_id: Meteor.userId()
+	}).profile.active;
+
+	console.log(isActive);
+
+	if(!isActive) {
+		Meteor.call("activateUser", Meteor.userId());
+	}
+
 	var skills = Meteor.users.findOne({
 			_id: Meteor.userId()
 		}).profile.skills;

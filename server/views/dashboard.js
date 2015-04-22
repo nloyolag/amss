@@ -62,6 +62,26 @@ Meteor.methods({
         {
             $set: { "profile.merits.$.active": 0 }
         });
+	},
+
+	deleteUser: function(userId) {
+		Meteor.users.update(
+		{
+			_id: userId
+		},
+		{
+			$set: { "profile.active": false }
+		});
+	},
+
+	activateUser: function(userId) {
+		Meteor.users.update(
+		{
+			_id: userId
+		},
+		{
+			$set: { "profile.active": true }
+		});		
 	}
 
 

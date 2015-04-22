@@ -57,3 +57,13 @@ Template.dashboardSettings.helpers({
 =           Events            =
 ===============================
 */
+Template.dashboardSettings.events({
+'click #deactivateUser': function(){
+    var id = Meteor.userId();
+    Meteor.call("deleteUser", id);
+    Meteor.logout(function(error) {
+        if (!error) {
+            Router.go('login');
+        }
+    });
+}});
