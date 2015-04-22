@@ -10,6 +10,19 @@ Template.registerUser.created = function() {
 
 /*
 ===============================
+=          Rendered           =
+===============================
+*/
+Template.registerUser.rendered = function() {
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+          accordion : false
+      });
+    });
+}
+
+/*
+===============================
 =            Forms            =
 ===============================
 */
@@ -95,7 +108,7 @@ AutoForm.hooks({
                         });
                     } 
                 }
-            );
+                );
 
             this.done();
         },

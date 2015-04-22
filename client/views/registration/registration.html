@@ -22,51 +22,57 @@
 
 				{{#autoForm id="createUserForm" schema=createUserSchema}}
 
-					<div class="input-field">
-						{{> afQuickField name='name' id='profile-name-create'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='username' id='profile-username-create'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='password' id='profile-password-create' type='password'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='email' id='profile-email-create'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='userTitle' id='profile-user-title-create'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='bio' id='profile-bio-create'}}
-					</div>
-					<div class="input-field">
-						{{> afQuickField name='location' id='profile-location-create'}}
-					</div>
+				<div class="input-field">
+					{{> afQuickField name='name' id='profile-name-create'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='username' id='profile-username-create'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='password' id='profile-password-create' type='password'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='email' id='profile-email-create'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='userTitle' id='profile-user-title-create'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='bio' id='profile-bio-create'}}
+				</div>
+				<div class="input-field">
+					{{> afQuickField name='location' id='profile-location-create'}}
+				</div>
 
-					{{> afQuickField name='skills' id='profile-skills-create'}}
+				{{> afQuickField name='skills' id='profile-skills-create'}}
 
-					<button id="submit-user" class="btn waves-effect waves-light" type="submit">Submit</button>
-
-				{{/autoForm}}
-
-				{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
-
-					{{> afQuickField name='skillName' id='add-skill'}}
-
-					<button id="submit-skill" class="btn waves-effect waves-light" type="submit">Submit Skill
-					<i class="mdi-content-add right"></i>
-					</button>
+				<button id="submit-user" class="btn waves-effect waves-light" type="submit">Submit</button>
 
 				{{/autoForm}}
 
 				{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
-
 			</div>
-
 		</div>
+		<ul class="collapsible" data-collapsible="accordion">
+			<li>
+				<div class="collapsible-header"><i class="mdi-image-filter-drama"></i> Skills is not in the list?  Add it</div>
+				<div class="collapsible-body">
+					<div>
+						{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
+
+						{{> afQuickField name='skillName' id='add-skill'}}
+
+						<button id="submit-skill" class="btn waves-effect waves-light" type="submit">Submit Skill
+							<i class="mdi-content-add right"></i>
+						</button>
+
+						{{/autoForm}}
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
 </template>

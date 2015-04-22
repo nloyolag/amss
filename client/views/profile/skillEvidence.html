@@ -10,28 +10,35 @@
 -->
 
 <template name="skillEvidence">
-<p>MY SKILLS EVIDENCES</p>
+	<div class="container">
+		<div class="card-panel green-header-card dashboard-card"> 
+			<div class="header">
+				<p>SKILLS EVIDENCE</p>
+			</div>
 
-{{#each userSkills}}
-	<p>Skill: {{name}}</p>
-	<p>Evidence:
-	{{#each evidences}}
-		<img src={{this}} style="width:100px;height:100px">
-	{{/each}}
-	</p>
-{{/each}}
+			<div class="dashboard-card-content">
+				{{#each userSkills}}
+				<p>Skill: {{name}}</p>
+				<p>Evidence:
+					{{#each evidences}}
+					<img src={{this}} style="width:100px;height:100px">
+					{{/each}}
+				</p>
+				{{/each}}
 
 
-<p>UPLOAD YOUR SKILL EVIDENCE!</p>
+				<p>UPLOAD YOUR SKILL EVIDENCE!</p>
 
-	{{#autoForm id="addEvidenceForm" schema=addEvidenceSchema type="method" meteormethod="addEvidence"}}
+				{{#autoForm id="addEvidenceForm" schema=addEvidenceSchema type="method" meteormethod="addEvidence"}}
 
-		{{> afQuickField name='skill' id='skill-evidence-add'}}
+				{{> afQuickField name='skill' id='skill-evidence-add'}}
 
-		{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
+				{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
 
-		<button class="btn waves-effect waves-light" type="submit">Submit</button>
+				<button class="btn waves-effect waves-light" type="submit">Submit</button>
 
-	{{/autoForm}}
-
+				{{/autoForm}}
+			</div>
+		</div>
+	</div>
 </template>
