@@ -2737,7 +2737,7 @@
  * and $rhythm-unit variables. Also, correct text resizing oddly in IE 6/7 when
  * body `font-size` is set using `em` units.
  */
-/* line 106, ../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 106, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 100%;
   line-height: 1.5em;
@@ -2875,11 +2875,6 @@ strong {
 /**
  * Set 1 unit of vertical rhythm on the top and bottom margin.
  */
-/* line 212, stylesheets/base/_normalize.scss */
-blockquote {
-  /*  margin: $output;*/
-}
-
 /**
  * Address styling not present in Safari and Chrome.
  */
@@ -2895,51 +2890,7 @@ dfn {
 /* line 230, stylesheets/base/_normalize.scss */
 h1 {
   /* Set the font-size and line-height while keeping a proper vertical rhythm. */
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
   /* Set 1 unit of vertical rhythm on the top and bottom margins. */
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
-}
-
-/* line 245, stylesheets/base/_normalize.scss */
-h2 {
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
-}
-
-/* line 251, stylesheets/base/_normalize.scss */
-h3 {
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
-}
-
-/* line 257, stylesheets/base/_normalize.scss */
-h4 {
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
-}
-
-/* line 263, stylesheets/base/_normalize.scss */
-h5 {
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
-}
-
-/* line 269, stylesheets/base/_normalize.scss */
-h6 {
-  /*  font-size: $output;*/
-  /*  line-height: $output;*/
-  /*  margin-top: $output;*/
-  /*  margin-bottom: $output;*/
 }
 
 /**
@@ -2954,12 +2905,6 @@ mark {
 /**
  * Set 1 unit of vertical rhythm on the top and bottom margin.
  */
-/* line 292, stylesheets/base/_normalize.scss */
-p,
-pre {
-  /*  margin: $output;*/
-}
-
 /**
  * Address inconsistent and variable font size in all browsers.
  */
@@ -2995,14 +2940,6 @@ sub {
 /**
  * Address margins set differently in IE 6/7.
  */
-/* line 334, stylesheets/base/_normalize.scss */
-dl,
-menu,
-ol,
-ul {
-  /*  margin: $output;*/
-}
-
 /* line 355, stylesheets/base/_normalize.scss */
 dd {
   margin: 0 0 0 40px;
@@ -3053,11 +2990,6 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-/* line 415, stylesheets/base/_normalize.scss */
-figure {
-  /*  margin: $output;*/
-}
-
 /**
  * Address differences between Firefox and other browsers.
  */
@@ -3266,18 +3198,10 @@ fieldset {
   margin: 0 2px;
   /* Apply borders and padding that keep the vertical rhythm. */
   border-color: #c0c0c0;
-  /*  border-top-width: $output;*/
   border-top-style: solid;
-  /*  padding-top: $output;*/
-  /*  border-bottom-width: $output;*/
   border-bottom-style: solid;
-  /*  padding-bottom: $output;*/
-  /*  border-left-width: $output;*/
   border-left-style: solid;
-  /*  padding-left: $output;*/
-  /*  border-right-width: $output;*/
   border-right-style: solid;
-  /*  padding-right: $output;*/
 }
 
 /**
@@ -3457,14 +3381,18 @@ body {
   margin-right: auto;
   padding-bottom: 20px;
 }
+/* line 6, stylesheets/pages/_login.scss */
+.logo_login .logo_img {
+  max-width: 100%;
+}
 
-/* line 9, stylesheets/pages/_login.scss */
+/* line 12, stylesheets/pages/_login.scss */
 #login-form .input-field {
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 14, stylesheets/pages/_login.scss */
+/* line 17, stylesheets/pages/_login.scss */
 #login-form .btn-large {
   min-width: 100%;
   margin-left: auto;

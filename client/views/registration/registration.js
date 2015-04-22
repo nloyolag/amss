@@ -81,7 +81,7 @@ AutoForm.hooks({
             if (Session.get('imgUrl')) {
                 insertDoc.img = Session.get('imgUrl');
             } else {
-                insertDoc.img = './public/images/default.jpg';
+                insertDoc.img = '/images/default.jpg';
             }
 
             var img = insertDoc.img;

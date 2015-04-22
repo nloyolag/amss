@@ -1,0 +1,25 @@
+<!--
+=================================================
+=   Skill evidence Template                     =
+=                                               =
+=   Description: Displays the form for the user =
+=	to add evidence for his skills.             =
+=                                               =
+=   Used By: dashboard                          =
+=================================================
+-->
+
+<template name="userEvidences">
+	<p>MY SKILLS EVIDENCES</p>
+
+	{{#each userSkills}}
+		<p>Skill: {{name}}</p>
+		<p>Evidence:
+		{{#each evidences}}
+			<img src={{this}} style="width:100px;height:100px">
+			<button data-evidence={{evidence}} class="deleteSkillEvidence">Delete</button>
+		{{/each}}
+		</p>
+	{{/each}}
+
+</template>

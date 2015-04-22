@@ -80,6 +80,14 @@ Template.notification.helpers({
     	} else {
     		return false;
     	}
+    },
+
+    isMerit: function() {
+    	if (this.type == MERIT) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     } 
 
 });
