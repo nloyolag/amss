@@ -73,9 +73,18 @@ AutoForm.hooks({
 ===============================
 */
 
+Template.skillEvidence.events({
+'click .deleteSkillEvidence': function(){
+    console.log('Jere');
+    var id = Meteor.userId();
+    var data = $.parseJSON($(this).attr('data-evidence'));
+    console.log(data);
+    //Meteor.call("deleteEvidence", id);
+}});
 
 Meteor.startup(function() {
     Uploader.finished = function(index, fileInfo, templateContext) {
         Session.set('imgUrl', fileInfo.url);
     }
 })
+
