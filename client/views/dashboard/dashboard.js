@@ -10,8 +10,6 @@ Template.dashboard.created = function() {
 		_id: Meteor.userId()
 	}).profile.active;
 
-	console.log(isActive);
-
 	if(!isActive) {
 		Meteor.call("activateUser", Meteor.userId());
 	}
