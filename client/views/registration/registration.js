@@ -45,23 +45,23 @@ AutoForm.hooks({
 
             var merits = [{
                 name: "VeteranTasker",
-                icon: "null",
+                icon: "/images/Veteran.png",
                 active: 0
             }, {
                 name: "CertifiedTasker",
-                icon: "null",
+                icon: "/images/Certified.png",
                 active: 0
             }, {
                 name: "NotoriousTasker",
-                icon: "null",
+                icon: "/images/Notorious.png",
                 active: 0
             }, {
                 name: "CommittedTasker",
-                icon: "null",
+                icon: "/images/Commited.png",
                 active: 0
             }, {
                 name: "AllStarTasker",
-                icon: "null",
+                icon: "/images/All-Star.png",
                 active: 0
             }];  
 

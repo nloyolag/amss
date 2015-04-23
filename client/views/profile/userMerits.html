@@ -1,0 +1,19 @@
+<!--
+=================================================
+=   User merits Template                        =
+=                                               =
+=   Description: Displays the user merits       =
+=                                               =
+=   Used By: profile                            =
+=================================================
+-->
+
+<template name="userMerits">
+	<p>MERITS</p>
+
+	{{#each userMerits}}
+		<p>Merit: {{name}}</p>
+		<img class="badge" src={{icon}} alt="">
+	{{/each}}
+
+</template>

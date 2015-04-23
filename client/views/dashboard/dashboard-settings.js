@@ -59,11 +59,14 @@ Template.dashboardSettings.helpers({
 */
 Template.dashboardSettings.events({
 'click #deactivateUser': function(){
-    var id = Meteor.userId();
-    Meteor.call("deleteUser", id);
-    Meteor.logout(function(error) {
-        if (!error) {
-            Router.go('login');
-        }
-    });
+    alertify.confirm('Are you sure you want to deactivate your account?').set('onok', function(closeEvent)
+    {     
+        var id = Meteor.userId();
+        Meteor.call("deleteUser", id);
+        Meteor.logout(function(error) {
+            if (!error) {
+                Router.go('login');
+            }
+        });}
+    , 'reverseButtons', true );
 }});
