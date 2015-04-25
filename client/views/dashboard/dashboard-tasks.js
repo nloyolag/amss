@@ -47,11 +47,11 @@ AutoForm.hooks({
 Template.dashboardTasks.helpers({
     
     userTasksEmployer: function() {
-        return Session.get("userTasksEmployer");
+        return Tasks.find({employer: Meteor.userId()}).fetch();
     },
 
     userTasksEmployee: function() {
-        return Session.get("userTasksEmployee");
+        return Tasks.find({employee: Meteor.userId()}).fetch();
     }
 
 });
