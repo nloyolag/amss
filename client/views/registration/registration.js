@@ -94,25 +94,23 @@ AutoForm.hooks({
                                 Router.go('dashboard');
                             } 
                         });
-                    } 
+                    } else {
+                        if (error.reason && error.reason === 'Email already exists.') {
+                            AutoForm.getValidationContext('createUserForm').addInvalidKeys([{
+                                name: 'email',
+                                type: 'unique'
+                            }]);
+                        } else if (error.reason && error.reason === 'Username already exists.') {
+                            AutoForm.getValidationContext('createUserForm').addInvalidKeys([{
+                                name: 'username',
+                                type: 'unique'
+                            }]);
+                        }
+                    }
                 }
             );
 
             this.done();
-        },
-
-        onError: function(operation, error, template) {
-            if (error.reason && error.reason === 'Email already exists.') {
-                AutoForm.getValidationContext('createUserForm').addInvalidKeys([{
-                    name: 'email',
-                    type: 'unique'
-                }]);
-            } else if (error.reason && error.reason === 'Username already exists.') {
-                AutoForm.getValidationContext('createUserForm').addInvalidKeys([{
-                    name: 'username',
-                    type: 'unique'
-                }]);
-            }
         }
 
     }

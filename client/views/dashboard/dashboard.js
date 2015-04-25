@@ -94,8 +94,6 @@ Template.dashboard.created = function() {
 			return obj.name == "NotoriousTasker";
 		});
 
-		console.log(result);
-
 		if (result[0].active == 0) {
 			Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker");
 			wasMeritAssigned = true;
