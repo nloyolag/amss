@@ -1,0 +1,11 @@
+<template name="search">
+    RESULT:
+    {{#each searchResults}}
+        {{username}}
+        {{profile.userTitle}}
+        {{profile.location}}
+        {{#each profile.skills}}
+            {{name}}
+        {{/each}}
+    {{/each}}
+</template>

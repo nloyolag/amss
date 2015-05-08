@@ -33,6 +33,10 @@ Template.navbar.helpers({
         } else {
             return false;
         }
+    },
+
+    searchUsers: function() {
+
     }
 
 });
@@ -51,9 +55,19 @@ Template.navbar.events({
         //Meteor.logout();
         Router.go('login');
     },
-
+/*
     "change #search": function(event) {
         console.log('registering_change');
+    },
+*/
+
+    "keypress #search": function(event){
+         if (event.which === 13) {
+            event.preventDefault();
+            Session.set("query", $( "#search" ).val());
+            var query = $( "#search" ).val();
+            Router.go('search', {query: query});
+        }
     },
 
     "click .dropdown-button": function(e) {
