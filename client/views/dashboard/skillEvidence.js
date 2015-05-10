@@ -76,8 +76,10 @@ AutoForm.hooks({
 Template.skillEvidence.events({
 'click .deleteSkillEvidence': function(){
     var id = Meteor.userId();
+    var name = event.target.dataset.name;
     var evidence = event.target.dataset.evidence;
-    //Meteor.call("deleteEvidence", evidence);
+    console.log(name);
+    Meteor.call("deleteEvidence", id, name, evidence);
 }});
 
 Meteor.startup(function() {

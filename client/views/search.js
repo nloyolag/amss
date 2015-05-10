@@ -12,7 +12,7 @@ Template.search.helpers({
     searchResults: function() {
         var query = Session.get("query");
         var param = new RegExp(query, 'g');
-        return Meteor.users.find( {$and : [{$or: [ { "username": param}, { "profile.skills.name": param}]}]});
+        return Meteor.users.find( {$and : [{$or: [ { "username": param}, { "profile.skills.name": param}]}, {"profile.active": true}]});
     }/*,
 
     positiveReviews: function() {
