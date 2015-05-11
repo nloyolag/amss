@@ -33,6 +33,10 @@ Template.navbar.helpers({
         } else {
             return false;
         }
+    },
+
+    searchUsers: function() {
+
     }
 
 });
@@ -45,21 +49,23 @@ Template.navbar.helpers({
 */
 
 Template.navbar.events({
-
     "click #logout-user": function(event) {
         console.log('logout');
         //Meteor.logout();
         Router.go('login');
     },
-
-    /*"change #search": function(event) {
+/*
+    "change #search": function(event) {
         console.log('registering_change');
-    },*/
+    },
+    */
 
     "keypress #search": function(event){
-     if (event.which === 13) {
+       if (event.which === 13) {
         event.preventDefault();
-        console.log($( "#search" ).val());
+        Session.set("query", $( "#search" ).val());
+        var query = $( "#search" ).val();
+        Router.go('search', {query: query});
     }
 },
 

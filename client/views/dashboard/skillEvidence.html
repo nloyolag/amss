@@ -10,7 +10,6 @@
 -->
 
 <template name="skillEvidence">
-
 	<div class="container">
 		<div class="card-panel green-header-card dashboard-card"> 
 			<div class="header">
@@ -30,6 +29,7 @@
 								{{#each evidences}}
 								<a href={{this}} class='evidenceImages'><img src={{this}} style="width:100px;height:100px"></a>
 								<a href="" role="button" data-name={{evidence}} data-evidence={{this}} class="deleteSkillEvidence">Delete</a>
+								<a href="" role="button" data-name={{../name}} data-evidence={{this}} class="deleteSkillEvidence">Delete</a>
 								{{/each}}
 							</p>
 						</div>
@@ -52,5 +52,4 @@
 			</div>
 		</div>
 	</div>
-
 </template>

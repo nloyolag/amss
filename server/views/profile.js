@@ -67,6 +67,37 @@ Meteor.methods({
 
     /*
     ===================================================
+    =  Server Method unvalidateSkill                  =
+    =                                                 =
+    =  Arguments: Skill Name: String                  =
+    =             Validator Id: userId                =
+    =             profileUser: user object            =
+    =                                                 =
+    =  Returns:                                       =
+    =                                                 =
+    =  Description: Method that unvalidates a skill   =
+    =  based on the logged in user Id                 =
+    =                                                 =
+    =  Used By: views/profile/skill.js                =
+    =           views/profile/skill.html              =
+    ===================================================
+    */
+
+    unvalidateSkill: function(skillName, validatorId, profileUser) {
+
+        Meteor.users.update(
+        {
+            _id: profileUser._id,
+            "profile.skills.name": skillName
+        }, 
+        {
+            $pull: { "profile.skills.$.validations": validatorId }
+        });
+
+    },
+
+    /*
+    ===================================================
     =  Server Method createChat                       =
     =                                                 =
     =  Arguments: participants: [userId]              =   

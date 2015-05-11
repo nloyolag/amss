@@ -28,15 +28,15 @@ Meteor.methods({
 
     },
 
-    deleteEvidence: function(id, evidence) {
+    deleteEvidence: function(id, name, evidence) {
 
         Meteor.users.update(
         {
             _id: id,
-            "profile.skills.evidences": skill
+            "profile.skills.name": name
         }, 
         {
-            $push: { "profile.skills.$.evidences": img }
+            $pull: { "profile.skills.$.evidences": evidence }
         }); 
     }
 

@@ -74,6 +74,20 @@ Template.skill.events({
 			SKILL_VALIDATION,
 			""
 		);
+	},
+
+	"click .unvalidate-skill": function(event) {
+
+		event.preventDefault();
+
+		var validatorId = Meteor.userId();
+		var profileUser = Meteor.users.findOne({
+			username: Session.get("currentProfileUsername")
+		});
+		var skillName = this.name;
+
+		Meteor.call("unvalidateSkill", skillName, validatorId, profileUser);
+
 	}
 
 });

@@ -72,46 +72,86 @@ Template.dashboard.created = function() {
 	var assignedMeritsDescription = [];
 
 	if(evidenceNum > (skillsNum / 2)) {
-		Meteor.call("assignMerit", Meteor.userId(), "CertifiedTasker");
-		wasMeritAssigned = true;
-		assignedMerits.push("Certified Tasker");
-		assignedMeritsDescription.push(CERTIFIED_DESCRIPTION);
+
+		var result = Meteor.user().profile.merits.filter(function( obj ) {
+			return obj.name == "CertifiedTasker";
+		});
+
+		if (result[0].active == 0) {
+			Meteor.call("assignMerit", Meteor.userId(), "CertifiedTasker");
+			wasMeritAssigned = true;
+			assignedMerits.push("Certified Tasker");
+			assignedMeritsDescription.push(CERTIFIED_DESCRIPTION);
+		}
+		
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "CertifiedTasker");
 	}
 
 	if(validationNum > (skillsNum / 2)) {
-		Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker");
-		wasMeritAssigned = true;
-		assignedMerits.push("Notorious Tasker");
-		assignedMeritsDescription.push(NOTORIOUS_DESCRIPTION);
+
+		var result = Meteor.user().profile.merits.filter(function( obj ) {
+			return obj.name == "NotoriousTasker";
+		});
+
+		if (result[0].active == 0) {
+			Meteor.call("assignMerit", Meteor.userId(), "NotoriousTasker");
+			wasMeritAssigned = true;
+			assignedMerits.push("Notorious Tasker");
+			assignedMeritsDescription.push(NOTORIOUS_DESCRIPTION);
+		}
+
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "NotoriousTasker");
 	}
 
 	if(completedTasks > (taskNum / 2)) {
-		Meteor.call("assignMerit", Meteor.userId(), "CommittedTasker");
-		wasMeritAssigned = true;
-		assignedMerits.push("Commited Tasker");
-		assignedMeritsDescription.push(COMMITTED_DESCRIPTION);
+
+		var result = Meteor.user().profile.merits.filter(function( obj ) {
+			return obj.name == "CommittedTasker";
+		});
+
+		if (result[0].active == 0) {
+			Meteor.call("assignMerit", Meteor.userId(), "CommittedTasker");
+			wasMeritAssigned = true;
+			assignedMerits.push("Commited Tasker");
+			assignedMeritsDescription.push(COMMITTED_DESCRIPTION);
+		}
+
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "CommittedTasker");
 	}
 
 	if(positiveReviews > (reviewsNum / 2)) {
-		Meteor.call("assignMerit", Meteor.userId(), "AllStarTasker");
-		wasMeritAssigned = true;
-		assignedMerits.push("All Star Tasker");
-		assignedMeritsDescription.push(ALLSTAR_DESCRIPTION);
+
+		var result = Meteor.user().profile.merits.filter(function( obj ) {
+			return obj.name == "AllStarTasker";
+		});
+
+		if (result[0].active == 0) {
+			Meteor.call("assignMerit", Meteor.userId(), "AllStarTasker");
+			wasMeritAssigned = true;
+			assignedMerits.push("All Star Tasker");
+			assignedMeritsDescription.push(ALLSTAR_DESCRIPTION);
+		}
+
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "AllStarTasker");
 	}
 
 	if(daysPassed >= 360) {
-		Meteor.call("assignMerit", Meteor.userId(), "VeteranTasker");
-		wasMeritAssigned = true;
-		assignedMerits.push("Veteran Tasker");
-		assignedMeritsDescription.push(VETERAN_DESCRIPTION);
+
+		var result = Meteor.user().profile.merits.filter(function( obj ) {
+			return obj.name == "VeteranTasker";
+		});
+
+		if (result[0].active == 0) {
+			Meteor.call("assignMerit", Meteor.userId(), "VeteranTasker");
+			wasMeritAssigned = true;
+			assignedMerits.push("Veteran Tasker");
+			assignedMeritsDescription.push(VETERAN_DESCRIPTION);
+		}
+
 	} else {
 		Meteor.call("unassignMerit", Meteor.userId(), "VeteranTasker");
 	}

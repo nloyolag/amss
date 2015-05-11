@@ -18,6 +18,14 @@ Meteor.methods({
 
 	registerUser: function(name, username, email, password, userTitle, bio, location, merits, skills, img) {
 
+        if (Meteor.users.findOne({ "emails.address" : email })) {
+            throw new Meteor.Error(400, 'Email already exists.');
+        }
+
+        if (Meteor.users.findOne({ "username" : username })) {
+            throw new Meteor.Error(400, 'Username already exists.');
+        }
+
         var userId = Accounts.createUser({
             username: username,
             email: email,
