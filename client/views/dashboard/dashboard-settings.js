@@ -5,6 +5,7 @@
 */
 
 Template.dashboardSettings.created = function() {
+
 };
 
 /*
@@ -14,6 +15,18 @@ Template.dashboardSettings.created = function() {
 */
 
 Template.dashboardSettings.rendered = function() {
+
+    var user = Meteor.users.findOne({
+            _id: Meteor.userId()
+    }); 
+
+    $('#profile-name-edit')[0].value = user.profile.name;
+    $('#profile-username-edit')[0].value = user.username;
+    $('#profile-email-edit')[0].value = user.emails[0].address;
+    $('#profile-user-title-edit')[0].value = user.profile.userTitle;
+    $('#profile-bio-edit')[0].value = user.profile.bio;
+    $('#profile-location-edit')[0].value = user.profile.location;
+    $('#profile-skills-edit')[0].value = user.profile.skills;
 }
 
 /*
@@ -25,16 +38,63 @@ Template.dashboardSettings.rendered = function() {
 AutoForm.hooks({
     editProfileForm: {
 
-        before: {
-            editProfile: function(doc, template) {
+        onSubmit: function(insertDoc, updateDoc, currentDoc) {
 
+            event.preventDefault();
+
+            var userId = Meteor.userId();
+
+            var name = $('#profile-name-edit')[0].value;
+            var username = $('#profile-username-edit')[0].value;
+            var email = $('#profile-email-edit')[0].value;
+            var userTitle = $('#profile-user-title-edit')[0].value;
+            var bio = $('#profile-bio-edit')[0].value;
+            var location = $('#profile-location-edit')[0].value;
+            var skills = insertDoc.skills;  
+
+            var skillsObj = [];
+
+            if (skills) {
+                skills.forEach(function(part, index, skills) {
+                    skills[index] = skills[index].toLowerCase();
+                    skillsObj.push({
+                        name: skills[index],
+                        validations: [],
+                        evidences: []
+                    });
+                });
             }
-        },
 
-        after: {
-            editProfile: function(error, result, template) {
+            Meteor.call(
+                "editProfile",
+                userId,
+                name,
+                username,
+                email,
+                userTitle,
+                bio,
+                location,
+                skillsObj,
+                function(error, result) {
+                    if (!error) {
+                        alertify.success('User updated');
+                    } else {
+                        if (error.reason && error.reason === 'Email already exists.') {
+                            AutoForm.getValidationContext('editProfileForm').addInvalidKeys([{
+                                name: 'email',
+                                type: 'unique'
+                            }]);
+                        } else if (error.reason && error.reason === 'Username already exists.') {
+                            AutoForm.getValidationContext('editProfileForm').addInvalidKeys([{
+                                name: 'username',
+                                type: 'unique'
+                            }]);
+                        }
+                    }
+                }
+            );
 
-            }
+            this.done();
         }
 
     }

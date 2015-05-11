@@ -15,10 +15,26 @@ Meteor.methods({
 	====================================================
 	*/
 
-	editProfile: function(doc) {
-		// Validate that username and email are unique
-		// Edit fields that are different
-		// Add new skills to DB and update user skills
+	editProfile: function(id, name, username, email, userTitle, bio, location, skills) {
+
+	    var user = Meteor.users.findOne({
+	            _id: Meteor.userId()
+	    }); 
+
+        if (Meteor.users.findOne({ "emails.address" : email }) && email != (user.emails[0].address)) {
+            throw new Meteor.Error(400, 'Email already exists.');
+        }
+
+        if (Meteor.users.findOne({ "username" : username }) && username != user.username) {
+            throw new Meteor.Error(400, 'Username already exists.');
+        }
+
+        console.log(id);
+
+        Meteor.users.update({_id: id}, {$set: {username: username, "profile.name": name, "emails.0.address": email, "profile.userTitle": userTitle, "profile.bio": bio, "profile.location": location, "profile.skills": skills}});
+        //Users.update({_id: id}, {$set: {usename: usename}, {"profile.name": name}, {"emails[0].address": email}, {"profile.userTitle": userTitle}, {"profile.bio": bio}, {"profile.location": location}})
+
+        console.log("byw");
 	},
 
 	/*

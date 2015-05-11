@@ -78,7 +78,6 @@ Template.skillEvidence.events({
     var id = Meteor.userId();
     var name = event.target.dataset.name;
     var evidence = event.target.dataset.evidence;
-    console.log(name);
     Meteor.call("deleteEvidence", id, name, evidence);
 }});
 
