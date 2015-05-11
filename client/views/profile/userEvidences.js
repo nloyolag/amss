@@ -22,6 +22,7 @@ Template.userEvidences.rendered = function() {
           accordion : false
       });
     });
+    $('a[class=evidenceImages]').fancybox();
 }
 
 /*
@@ -37,4 +38,10 @@ Template.userEvidences.helpers({
         }).profile.skills;
     }
 
+});
+
+Template.userEvidences.events({
+    'click a[class=evidenceImages]' : function(e){
+        e.preventDefault();
+    }
 });

@@ -3350,6 +3350,116 @@ th {
   text-transform: uppercase;
 }
 
+/* line 2, stylesheets/layout/_forms.scss */
+.register-user .register-user-head {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #4CAF50;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: thin solid #4CAF50;
+}
+/* line 11, stylesheets/layout/_forms.scss */
+.register-user .register-user-head span {
+  margin-right: 10px;
+}
+/* line 16, stylesheets/layout/_forms.scss */
+.register-user .has-error {
+  margin-bottom: 20px;
+}
+/* line 18, stylesheets/layout/_forms.scss */
+.register-user .has-error input[type="email"],
+.register-user .has-error input[type="number"],
+.register-user .has-error input[type="password"],
+.register-user .has-error input[type="search"],
+.register-user .has-error input[type="tel"],
+.register-user .has-error input[type="text"],
+.register-user .has-error input[type="url"] {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+/* line 29, stylesheets/layout/_forms.scss */
+.register-user .has-error #s2id_profile-skills-create {
+  margin-bottom: 5px;
+}
+/* line 33, stylesheets/layout/_forms.scss */
+.register-user .has-error .help-block {
+  color: #B71C1C;
+  font-size: .7em;
+  margin-top: -10px;
+  background-color: #FF8A80;
+  padding: 5px 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  margin-bottom: 100px;
+}
+/* line 46, stylesheets/layout/_forms.scss */
+.register-user #s2id_profile-skills-create {
+  padding-bottom: 20px;
+}
+/* line 48, stylesheets/layout/_forms.scss */
+.register-user #s2id_profile-skills-create .select2-search-choice {
+  color: #4CAF50;
+}
+/* line 53, stylesheets/layout/_forms.scss */
+.register-user #submit-user {
+  width: 100%;
+}
+
+/* line 58, stylesheets/layout/_forms.scss */
+.registration-helper {
+  padding-left: 0px;
+}
+/* line 60, stylesheets/layout/_forms.scss */
+.registration-helper .collapsible-body {
+  background-color: white;
+}
+/* line 62, stylesheets/layout/_forms.scss */
+.registration-helper .collapsible-body .content {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 67, stylesheets/layout/_forms.scss */
+.registration-helper .collapsible-body .content #submit-skill {
+  width: 100%;
+}
+/* line 72, stylesheets/layout/_forms.scss */
+.registration-helper .has-error {
+  margin-bottom: 20px;
+}
+/* line 74, stylesheets/layout/_forms.scss */
+.registration-helper .has-error input[type="email"],
+.registration-helper .has-error input[type="number"],
+.registration-helper .has-error input[type="password"],
+.registration-helper .has-error input[type="search"],
+.registration-helper .has-error input[type="tel"],
+.registration-helper .has-error input[type="text"],
+.registration-helper .has-error input[type="url"] {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+/* line 85, stylesheets/layout/_forms.scss */
+.registration-helper .has-error #s2id_profile-skills-create {
+  margin-bottom: 5px;
+}
+/* line 89, stylesheets/layout/_forms.scss */
+.registration-helper .has-error .help-block {
+  color: white;
+  font-size: .7em;
+  margin-top: -10px;
+  background-color: #E53935;
+  padding: 5px 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  margin-bottom: 100px;
+}
+
 /* line 1, stylesheets/layout/_header.scss */
 nav {
   background-color: #2E7D32 !important;
@@ -3445,29 +3555,30 @@ body {
   width: 65%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
 }
-/* line 38, stylesheets/pages/profile/_info.scss */
+/* line 39, stylesheets/pages/profile/_info.scss */
 .profile-info button.task {
   background-color: #00C853;
 }
-/* line 41, stylesheets/pages/profile/_info.scss */
+/* line 42, stylesheets/pages/profile/_info.scss */
 .profile-info button.message {
   background-color: #039be5;
 }
-/* line 45, stylesheets/pages/profile/_info.scss */
+/* line 46, stylesheets/pages/profile/_info.scss */
 .profile-info hr {
   border: 0;
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 51, stylesheets/pages/profile/_info.scss */
+/* line 52, stylesheets/pages/profile/_info.scss */
 .profile-info .number-stat {
   font-size: 20pt;
   font-weight: 400;
   color: #212121;
 }
-/* line 56, stylesheets/pages/profile/_info.scss */
+/* line 57, stylesheets/pages/profile/_info.scss */
 .profile-info .stat-description {
   font-size: 10pt;
   font-weight: 400;
@@ -3525,7 +3636,7 @@ body {
 }
 /* line 6, stylesheets/pages/profile/_messages.scss */
 .message-Excerpt .chat-img {
-  width: 15%;
+  width: 9%;
   display: inline-block;
   margin-left: 10px;
 }
@@ -3627,7 +3738,152 @@ body {
   margin-top: 5px;
 }
 
-/* line 5, stylesheets/pages/_profile.scss */
+/* line 1, stylesheets/pages/profile/_modals.scss */
+.task-modal {
+  top: 20% !important;
+  height: 400px !important;
+}
+/* line 6, stylesheets/pages/profile/_modals.scss */
+.task-modal .modal-header {
+  margin-right: 3%;
+  margin-left: 3%;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 500;
+  color: #4CAF50;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: thin solid #4CAF50;
+}
+/* line 17, stylesheets/pages/profile/_modals.scss */
+.task-modal .modal-header span {
+  margin-right: 10px;
+}
+/* line 21, stylesheets/pages/profile/_modals.scss */
+.task-modal textarea {
+  resize: none;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  outline: none;
+  margin-bottom: 20px;
+  height: 120px;
+}
+/* line 29, stylesheets/pages/profile/_modals.scss */
+.task-modal textarea:focus {
+  border-bottom: 2px solid #26a69a;
+}
+/* line 32, stylesheets/pages/profile/_modals.scss */
+.task-modal .submit-task {
+  width: 100%;
+  background-color: #00C853;
+}
+/* line 36, stylesheets/pages/profile/_modals.scss */
+.task-modal .has-error {
+  margin-bottom: 10px;
+}
+/* line 39, stylesheets/pages/profile/_modals.scss */
+.task-modal .has-error input[type="email"],
+.task-modal .has-error input[type="number"],
+.task-modal .has-error input[type="password"],
+.task-modal .has-error input[type="search"],
+.task-modal .has-error input[type="tel"],
+.task-modal .has-error input[type="text"],
+.task-modal .has-error input[type="url"] {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+/* line 50, stylesheets/pages/profile/_modals.scss */
+.task-modal .has-error textarea {
+  height: 80px;
+  margin-bottom: 0px;
+}
+/* line 55, stylesheets/pages/profile/_modals.scss */
+.task-modal .has-error .help-block {
+  color: #B71C1C;
+  font-size: .7em;
+  margin-top: -10px;
+  background-color: #FF8A80;
+  padding: 5px 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  margin-bottom: 100px;
+}
+
+/* line 69, stylesheets/pages/profile/_modals.scss */
+.message-modal {
+  top: 20% !important;
+  height: 380px !important;
+}
+/* line 72, stylesheets/pages/profile/_modals.scss */
+.message-modal .modal-header {
+  margin-right: 3%;
+  margin-left: 3%;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 500;
+  color: #1976D2;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: thin solid #1976D2;
+}
+/* line 83, stylesheets/pages/profile/_modals.scss */
+.message-modal .modal-header span {
+  margin-right: 10px;
+}
+/* line 88, stylesheets/pages/profile/_modals.scss */
+.message-modal textarea {
+  resize: none;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  outline: none;
+  margin-bottom: 20px;
+  height: 170px;
+}
+/* line 96, stylesheets/pages/profile/_modals.scss */
+.message-modal textarea:focus {
+  border-bottom: 2px solid #26a69a;
+}
+/* line 100, stylesheets/pages/profile/_modals.scss */
+.message-modal .has-error {
+  margin-bottom: 10px;
+}
+/* line 103, stylesheets/pages/profile/_modals.scss */
+.message-modal .has-error input[type="email"],
+.message-modal .has-error input[type="number"],
+.message-modal .has-error input[type="password"],
+.message-modal .has-error input[type="search"],
+.message-modal .has-error input[type="tel"],
+.message-modal .has-error input[type="text"],
+.message-modal .has-error input[type="url"] {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+/* line 114, stylesheets/pages/profile/_modals.scss */
+.message-modal .has-error textarea {
+  margin-bottom: 0px;
+}
+/* line 118, stylesheets/pages/profile/_modals.scss */
+.message-modal .has-error .help-block {
+  color: #B71C1C;
+  font-size: .7em;
+  margin-top: -10px;
+  background-color: #FF8A80;
+  padding: 5px 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  margin-bottom: 100px;
+}
+/* line 130, stylesheets/pages/profile/_modals.scss */
+.message-modal .submit-message {
+  width: 100%;
+  background-color: #039be5;
+}
+
+/* line 6, stylesheets/pages/_profile.scss */
 .content-90 {
   margin-top: 20px;
   margin-left: 3%;
@@ -3661,4 +3917,9 @@ body {
 .green-header-card .header .single-action {
   display: inline;
   margin-left: 88%;
+}
+
+/* line 26, stylesheets/pages/profile/_cards.scss */
+.skills-evidence {
+  padding-left: 0px;
 }

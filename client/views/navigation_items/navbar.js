@@ -52,18 +52,25 @@ Template.navbar.events({
         Router.go('login');
     },
 
-    "change #search": function(event) {
+    /*"change #search": function(event) {
         console.log('registering_change');
-    },
+    },*/
 
-    "click .dropdown-button": function(e) {
-        $('#logout-user').click(function() {
-            event.preventDefault();
-            Meteor.logout(function(error) {
-                if (!error) {
-                    Router.go('login');
-                }
-            });
-        });
+    "keypress #search": function(event){
+     if (event.which === 13) {
+        event.preventDefault();
+        console.log($( "#search" ).val());
     }
+},
+
+"click .dropdown-button": function(e) {
+    $('#logout-user').click(function() {
+        event.preventDefault();
+        Meteor.logout(function(error) {
+            if (!error) {
+                Router.go('login');
+            }
+        });
+    });
+}
 });

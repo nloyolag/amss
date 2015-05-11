@@ -1,0 +1,134 @@
+.task-modal{
+
+	top: 20% !important;
+	height: 400px !important; 
+
+	.modal-header{
+		margin-right: 3%;
+		margin-left: 3%;
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: $medium;
+		color:  color("green","base");
+		margin-top: 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("green","base");
+		span{
+			margin-right: 10px;
+		}
+	}
+	textarea{
+		resize: none;
+		border: none;
+		border-bottom: 1px solid #bdbdbd;
+		outline: none;
+		margin-bottom: 20px;
+		height: 120px;
+	}
+	textarea:focus{
+		border-bottom: 2px solid color("teal", "lighten-1");
+	}
+	.submit-task{
+		width: 100%;
+		background-color: color("green", "accent-4");
+	}
+	.has-error{
+
+		margin-bottom: 10px;
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"]{
+			margin-bottom: 5px;
+			padding-top: 5px;
+		}
+
+		textarea {
+			height: 80px;
+			margin-bottom: 0px;
+		}
+
+		.help-block{
+			color: color("red","darken-4");;
+			font-size: .7em;
+			margin-top: -10px;
+			background-color: color("red","accent-1");
+			padding: 5px 5px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
+			margin-bottom: 100px;
+		}
+	}
+}
+
+.message-modal{
+	top: 20% !important;
+	height: 380px !important; 
+	.modal-header{
+		margin-right: 3%;
+		margin-left: 3%;
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: $medium;
+		color:  color("blue","darken-2");
+		margin-top: 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("blue","darken-2");
+		span{
+			margin-right: 10px;
+		}
+	}
+
+	textarea{
+		resize: none;
+		border: none;
+		border-bottom: 1px solid #bdbdbd;
+		outline: none;
+		margin-bottom: 20px;
+		height: 170px;
+	}
+	textarea:focus{
+		border-bottom: 2px solid color("teal", "lighten-1");
+	}
+
+	.has-error{
+
+		margin-bottom: 10px;
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"]{
+			margin-bottom: 5px;
+			padding-top: 5px;
+		}
+
+		textarea {
+			margin-bottom: 0px;
+		}
+
+		.help-block{
+			color: color("red","darken-4");
+			font-size: .7em;
+			margin-top: -10px;
+			background-color: color("red","accent-1");
+			padding: 5px 5px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
+			margin-bottom: 100px;
+		}
+	}
+	.submit-message{
+		width: 100%;
+		background-color: color("light-blue", "darken-1");
+	}
+}

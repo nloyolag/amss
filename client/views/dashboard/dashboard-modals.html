@@ -12,8 +12,11 @@
 <template name="dashboardModals">
 
 	<div id="create-review" class="modal modal-fixed-footer">
-		<h4>Create Review</h4>
-
+		<div class="modal-header">
+			<span>Review</span>
+		</div>
+		
+		<div class="modal-content">
 		{{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
 
 		{{> afQuickField name='title' id='create-review-title'}}
@@ -26,6 +29,7 @@
 		<button type="submit">Submit</button>
 
 		{{/autoForm}}
+		</div>
 
 	</div>
 

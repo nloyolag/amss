@@ -12,10 +12,12 @@
 <template name="registerUser">
 
 	<div class="container">
+
+		<div class="logo_login"><a href="/"><img src="/images/Logo_green.png" alt="logo" class="logo_img"></a></div>
 		<div class="card-panel register-user">
 
 			<div class="register-user-head">
-				<p>Crea tu cuenta</p>
+				<span>Register your account</span><i class="mdi-action-assignment-ind"></i>
 			</div>
 
 			<div class="register-user-content">
@@ -49,24 +51,31 @@
 
 				{{> afQuickField name='skills' id='profile-skills-create'}}
 
-				<button id="submit-user" class="btn waves-effect waves-light" type="submit">Submit</button>
+				<button id="submit-user" class="btn waves-effect waves-light" type="submit">Sign up</button>
 
 				{{/autoForm}}
-
-				{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
 			</div>
 		</div>
-		<ul class="collapsible" data-collapsible="accordion">
+		<ul class="collapsible registration-helper" data-collapsible="accordion">
+			<li>
+				<div class="collapsible-header"><i class="mdi-action-account-circle"></i> Upload a profile picture</div>
+				<div class="collapsible-body">
+					<div class="content">
+						{{> upload_bootstrap contentTypes='images' fileTypes='.jpg, .png' }}
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="collapsible registration-helper" data-collapsible="accordion">
 			<li>
 				<div class="collapsible-header"><i class="mdi-content-add-box"></i> Couldn't find your skill?  Add it</div>
 				<div class="collapsible-body">
-					<div>
+					<div class="content">
 						{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
 
 						{{> afQuickField name='skillName' id='add-skill'}}
 
-						<button id="submit-skill" class="btn waves-effect waves-light" type="submit">Submit Skill
-							<i class="mdi-content-add right"></i>
+						<button id="submit-skill" class="btn waves-effect waves-light" type="submit">Add my skill
 						</button>
 
 						{{/autoForm}}

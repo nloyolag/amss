@@ -1,1 +1,101 @@
+.register-user{
+	.register-user-head{
+		text-align: center;
+		font-size: 1.4em;
+		font-weight: $medium;
+		color:  color("green","base");
+		margin-bottom: 30px;
+		padding-bottom: 20px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("green","base");
+		span{
+			margin-right: 10px;
+		}
+	}
 
+	.has-error{
+		margin-bottom: 20px;
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"]{
+			margin-bottom: 5px;
+			padding-top: 5px;
+		}
+
+		#s2id_profile-skills-create{
+			margin-bottom: 5px;
+		}
+
+		.help-block{
+			color: color("red","darken-4");
+			font-size: .7em;
+			margin-top: -10px;
+			background-color: color("red","accent-1");
+			padding: 5px 5px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
+			margin-bottom: 100px;
+		}
+	}
+
+	#s2id_profile-skills-create{
+		padding-bottom: 20px;
+		.select2-search-choice{
+			color: color("green","base");
+		}
+	}
+
+	#submit-user{
+		width: 100%;
+	}
+}
+
+.registration-helper{
+	padding-left: 0px;
+	.collapsible-body{
+		background-color: white;
+		.content{
+			padding-left: 5%;
+			padding-right: 5%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			#submit-skill{
+				width: 100%;
+			}
+		}
+	}
+	.has-error{
+		margin-bottom: 20px;
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"]{
+			margin-bottom: 5px;
+			padding-top: 5px;
+		}
+
+		#s2id_profile-skills-create{
+			margin-bottom: 5px;
+		}
+
+		.help-block{
+			color:white;
+			font-size: .7em;
+			margin-top: -10px;
+			background-color: color("red","darken-1");
+			padding: 5px 5px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
+			margin-bottom: 100px;
+		}
+	}
+}
