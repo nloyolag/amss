@@ -40,19 +40,19 @@ Template.profileInfo.helpers({
 	completedTasks: function() {
 		return Tasks.find(
 		{$and : [
-		{employee: Meteor.userId()},
+		{employee: Session.get("currentProfileId")},
 		{employeeStatus: "Done"}
 		]}).count();
 	},
 
 	positiveReviews: function() {
 		var totalReviews =  Reviews.find({
-			to: Meteor.userId()
+			to: Session.get("currentProfileId")
 		}).count();
 
 		var positiveReviews = Reviews.find(
 		{$and : [
-			{to: Meteor.userId()},
+			{to: Session.get("currentProfileId")},
 			{$or : [
 				{score: 4},
 				{score: 5}
