@@ -13,48 +13,52 @@
 <template name="task">
 	<div class="valign-wrapper">
 		{{#if isEmployee}}
-        <img src="{{fromPhotoEmployee}}" alt="profile_pic" class="image responsive-img circle">
-        {{else}}
-        <img src="{{fromPhotoEmployer}}" alt="profile_pic" class="image responsive-img circle">
-        {{/if}}
-        <div class="side-content">
+		<img src="{{fromPhotoEmployee}}" alt="profile_pic" class="image responsive-img circle">
+		{{else}}
+		<img src="{{fromPhotoEmployer}}" alt="profile_pic" class="image responsive-img circle">
+		{{/if}}
+		<div class="side-content">
 
-            <p class="truncate">{{task.name}}</p>
+			<p class="truncate">{{task.name}}</p>
 
-            {{#if isEmployee}}
+			{{#if isEmployee}}
 
-            	<p class="on-going status">
-	                {{task.employeeStatus}}
-	            </p>
+			<p class="on-going status">
+				{{task.employeeStatus}}
+			</p>
 
-	            <p>{{taskEmployer}}</p>
-	            <div class="actions">
-	            	<a href="#" id="complete-task"><i class="small mdi-action-done"></i></a>
-	                <a href="#" class="check-review"><i class="small mdi-navigation-more-horiz"></i></a>
-	            </div>
+			<p>{{taskEmployer}}</p>
+			<div class="actions">
+				{{#unless done}}
+				<a href="#" id="complete-task"><i class="small mdi-action-done"></i></a>
+				{{/unless}}
+				<a href="#" class="check-review"><i class="small mdi-navigation-more-horiz"></i></a>
+			</div>
 
-            {{else}}
+			{{else}}
 
-            	{{#if pendingReview}} 
-            		<a href="#" class="do-review"> 
-			            <p class="on-going status">
-			                {{task.employerStatus}}
-			            </p>
-	            	</a> 
-	            {{else}}
-	            	<p class="on-going status">
-		                {{task.employerStatus}}
-		            </p>
-	            {{/if}}
-          	
-	            <p>{{taskEmployee}}</p>
-	            <div class="actions">
-	            	<a href="#" id="complete-task"><i class="small mdi-action-done"></i></a>
-	                <a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
-	            </div>
+			{{#if pendingReview}} 
+			<a href="#" class="do-review"> 
+				<p class="on-going status">
+					{{task.employerStatus}}
+				</p>
+			</a> 
+			{{else}}
+			<p class="on-going status">
+				{{task.employerStatus}}
+			</p>
+			{{/if}}
 
-            {{/if}}
+			<p>{{taskEmployee}}</p>
+			<div class="actions">
+				{{#unless done}}
+				<a href="#" id="complete-task"><i class="small mdi-action-done"></i></a>
+				{{/unless}}
+				<a href="#"><i class="small mdi-navigation-more-horiz"></i></a>
+			</div>
 
-        </div>
-    </div>	
+			{{/if}}
+
+		</div>
+	</div>	
 </template>
