@@ -5,6 +5,10 @@
 */
 
 Template.profileInfo.created = function() {
+	var username = Router.current().params.username;
+	Session.set("currentProfileUsername", username);
+	var user = Meteor.users.findOne({username: username});
+	Session.set("currentProfileId", user._id);
 	var tasks = Tasks.find({
 		employer: Meteor.userId(),
 		employee: Session.get("currentProfileId"),
@@ -38,6 +42,7 @@ Template.profileInfo.helpers({
 	},
 
 	completedTasks: function() {
+		console.log(Session.get("currentProfileId"));
 		return Tasks.find(
 		{$and : [
 		{employee: Session.get("currentProfileId")},
@@ -46,6 +51,7 @@ Template.profileInfo.helpers({
 	},
 
 	positiveReviews: function() {
+		console.log(Session.get("currentProfileId"));
 		var totalReviews =  Reviews.find({
 			to: Session.get("currentProfileId")
 		}).count();
