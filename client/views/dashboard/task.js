@@ -41,6 +41,17 @@ Template.task.helpers({
     	return false;
     },
 
+    done: function(){
+        if (this.isEmployee) {
+            if (this.task.employeeStatus === DONE) 
+                return true;
+        } else {
+            if (this.task.employerStatus === DONE) 
+                return true;
+        }
+        return false;
+    },
+
     checkReview: function() {
         event.preventDefault();
         $('#view-review').openModal();
