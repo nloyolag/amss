@@ -1,11 +1,32 @@
 <template name="search">
-    RESULT:
-    {{#each searchResults}}
-        {{username}}
-        {{profile.userTitle}}
-        {{profile.location}}
-        {{#each profile.skills}}
-            {{name}}
-        {{/each}}
-    {{/each}}
+	<div class="content-90">
+		<div class="row">
+			{{#each searchResults}}
+			<div class="col s3 result-card">
+				<div class="card">
+					<div class="card-image">
+						<img src="{{profile.img}}">
+					</div>
+					<div class="card-content">
+						<span class="name">{{username}}</span>
+						<hr>
+						<span class="title"> {{profile.userTitle}} </span>
+						<hr>
+						<span class="skills-set">
+							<span class="skills-title"> My skills: </span>
+							{{#each profile.skills}}
+							<span class="skill"> {{name}} </span>
+							{{/each}}
+						</span>
+						<hr>
+						<span class="location"><i class="mdi-communication-location-on"></i>{{profile.location}}</span>
+					</div>
+					<div class="card-action">
+						<a href="/profile/{{username}}">Go to profile</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
 </template>

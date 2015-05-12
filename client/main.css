@@ -3923,3 +3923,80 @@ body {
 .skills-evidence {
   padding-left: 0px;
 }
+
+/* line 2, stylesheets/pages/_search.scss */
+.result-card .card-title {
+  color: #43A047;
+  text-transform: uppercase;
+}
+/* line 6, stylesheets/pages/_search.scss */
+.result-card .card-action {
+  background: #388E3C;
+}
+/* line 8, stylesheets/pages/_search.scss */
+.result-card .card-action a {
+  color: #fafafa;
+}
+/* line 10, stylesheets/pages/_search.scss */
+.result-card .card-action a:hover {
+  color: #e0e0e0;
+}
+/* line 15, stylesheets/pages/_search.scss */
+.result-card .card-content {
+  text-align: center;
+}
+/* line 17, stylesheets/pages/_search.scss */
+.result-card .card-content .name {
+  display: block;
+  font-weight: 700;
+  font-size: 16pt;
+  color: #212121;
+}
+/* line 24, stylesheets/pages/_search.scss */
+.result-card .card-content .title {
+  display: block;
+  font-weight: 300;
+  font-size: 13pt;
+  color: #616161;
+}
+/* line 31, stylesheets/pages/_search.scss */
+.result-card .card-content .location {
+  display: block;
+  font-weight: 300;
+  font-size: 13pt;
+  color: #1E88E5;
+}
+/* line 33, stylesheets/pages/_search.scss */
+.result-card .card-content .location i {
+  padding-right: 5px;
+}
+/* line 41, stylesheets/pages/_search.scss */
+.result-card .card-content .skills-set {
+  margin-top: 10px;
+}
+/* line 43, stylesheets/pages/_search.scss */
+.result-card .card-content .skills-set .skills-title {
+  display: block;
+  font-size: 12pt;
+  color: #2E7D32;
+  margin-bottom: 5px;
+}
+/* line 49, stylesheets/pages/_search.scss */
+.result-card .card-content .skills-set .skill {
+  display: inline-block;
+  background-color: #2E7D32;
+  padding: 2px 7px 2px 7px;
+  font-size: 11pt;
+  color: #C8E6C9;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+}
+/* line 59, stylesheets/pages/_search.scss */
+.result-card .card-content hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
