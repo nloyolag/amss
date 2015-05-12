@@ -52,7 +52,7 @@ Template.login.events({
 
                 } else {
 
-                    alertify.alert('Welcome back! Your account has been reactivated.');
+                    alertify.success('Welcome back! Your account has been reactivated.');
                     Router.go('dashboard');
                 }
             }
