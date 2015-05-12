@@ -15,45 +15,41 @@
 
 			<div class="header">
 				<p>My info</p>
-				<span class="single-action"><i class="mdi-editor-mode-edit"></i></span>
 			</div>
 
 			<div class="dashboard-card-content">
 
 				{{#autoForm id="editProfileForm" schema=editProfileSchema}}
 
-					<div class="input-field">
-						{{> afQuickField name='name' id='profile-name-edit'}}
-					</div>
-					<div class="input-field">
-					{{> afQuickField name='username' id='profile-username-edit'}}
-					</div>
-					<div class="input-field">
-					{{> afQuickField name='email' id='profile-email-edit'}}
-					</div>
-					<div class="input-field">
-					{{> afQuickField name='userTitle' id='profile-user-title-edit'}}
-					</div>
-					<div class="input-field">
-					{{> afQuickField name='bio' id='profile-bio-edit' rows=2}}
-					</div>
-					<div class="input-field">
-					{{> afQuickField name='location' id='profile-location-edit'}}
-					</div>
 
-					{{> afQuickField name='skills' id='profile-skills-edit'}}
+				{{> afQuickField name='name' id='profile-name-edit'}}
 
-					<button  class="btn waves-effect waves-light" type="submit">Submit</button>
+
+				{{> afQuickField name='username' id='profile-username-edit'}}
+
+
+				{{> afQuickField name='email' id='profile-email-edit'}}
+
+				{{> afQuickField name='userTitle' id='profile-user-title-edit'}}
+
+				{{> afQuickField name='bio' id='profile-bio-edit' rows=2}}
+
+				{{> afQuickField name='location' id='profile-location-edit'}}
+
+
+				{{> afQuickField name='skills' id='profile-skills-edit'}}
+
+				<button  class="btn waves-effect waves-light" type="submit">Submit</button>
 
 				{{/autoForm}}
 
 				{{#autoForm id="addSkillForm" collection="Skills" type="insert"}}
 
-					{{> afQuickField name='skillName' id='add-skill'}}
+				{{> afQuickField name='skillName' id='add-skill'}}
 
-					<button class="btn waves-effect waves-light" type="submit">Submit Skill
+				<button class="btn waves-effect waves-light" type="submit">Submit Skill
 					<i class="mdi-content-add right"></i>
-					</button>
+				</button>
 
 				{{/autoForm}}
 				<button id="deactivateUser">Deactivate Account</button>

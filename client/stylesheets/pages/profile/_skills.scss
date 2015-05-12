@@ -26,5 +26,30 @@
 		max-width: 50%;
 		display: inline-block;
 		font-size:20px;
+		background-color: color("green", "darken-3");
+		padding: 2px 7px 2px 7px;
+		color: color("green", "lighten-4");
+		@include border-radius(25px);
+		font-weight: $light;
+	}
+}
+
+.unvalidate-skill{
+	cursor: pointer;
+}
+
+.skill-evidence{
+	display: inline-block;
+	.deleteSkillEvidence{
+		display: block;
+		text-align: center;
+		i{
+			margin-right: 5px;
+		}
+	}
+	img{
+		width: 100px;
+		height: 100px;
+		@include border-radius(100%);
 	}
 }

@@ -1,3 +1,15 @@
+Template.dashboardModals.rendered = function() {
+	$('#create-review-score').setAttribute("max","5");
+	$('#create-review-score').setAttribute("min","0");
+	$('#create-review-score').value("5");
+}
+
+
+Template.dashboardModals.events({
+	"keypress #create-review-score": function(event){
+		event.preventDefault();
+	}
+});
 /*
 ===============================
 =           Helpers           =
@@ -5,26 +17,26 @@
 */
 
 Template.dashboardModals.helpers({
-    
-    review: function() {
-    	return Reviews.findOne({task: Session.get("reviewTaskId")});
-    },
 
-    notificationTask: function() {
-    	return Tasks.findOne({_id: Session.get("notificationTaskId")});
-    },
+	review: function() {
+		return Reviews.findOne({task: Session.get("reviewTaskId")});
+	},
 
-    notificationTaskEmployer: function() {
-    	var task = Tasks.findOne({_id: Session.get("notificationTaskId")});
-    	if (task) 
-    		return Meteor.users.findOne({_id: task.employer});
-    },
+	notificationTask: function() {
+		return Tasks.findOne({_id: Session.get("notificationTaskId")});
+	},
 
-    chatPhoto: function() {
-    	var chat = Chats.findOne(Session.get("openChatId"));
+	notificationTaskEmployer: function() {
+		var task = Tasks.findOne({_id: Session.get("notificationTaskId")});
+		if (task) 
+			return Meteor.users.findOne({_id: task.employer});
+	},
 
-    	if (chat) {
-    		var userId = Meteor.userId();
+	chatPhoto: function() {
+		var chat = Chats.findOne(Session.get("openChatId"));
+
+		if (chat) {
+			var userId = Meteor.userId();
 			var message = chat.messages[0];
 			var otherUserId;
 
@@ -35,7 +47,7 @@ Template.dashboardModals.helpers({
 			}
 
 			return Meteor.users.findOne(otherUserId).profile.img;
-    	}
+		}
 
 	},
 
@@ -122,7 +134,7 @@ AutoForm.hooks({
 						true,
 						REVIEW_DONE,
 						taskId
-					);
+						);
 				}			
 			}
 
@@ -183,7 +195,7 @@ AutoForm.hooks({
 				true,
 				RECEIVED_MESSAGE,
 				""
-			);
+				);
 
 			this.done();
 		}

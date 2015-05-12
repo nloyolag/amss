@@ -23,31 +23,23 @@
 			<div class="register-user-content">
 
 				{{#autoForm id="createUserForm" schema=createUserSchema}}
+				
+				{{> afQuickField name='name' id='profile-name-create'}}
+				
+				{{> afQuickField name='username' id='profile-username-create'}}
+				
+				{{> afQuickField name='password' id='profile-password-create' type='password'}}
+				
+				{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
+				
+				{{> afQuickField name='email' id='profile-email-create'}}
+				
+				{{> afQuickField name='userTitle' id='profile-user-title-create'}}
+				
+				{{> afQuickField name='bio' id='profile-bio-create'}}
+				
+				{{> afQuickField name='location' id='profile-location-create'}}
 
-				<div class="input-field">
-					{{> afQuickField name='name' id='profile-name-create'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='username' id='profile-username-create'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='password' id='profile-password-create' type='password'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='confirmPassword' id='profile-confirmPassword-create' type='password'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='email' id='profile-email-create'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='userTitle' id='profile-user-title-create'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='bio' id='profile-bio-create'}}
-				</div>
-				<div class="input-field">
-					{{> afQuickField name='location' id='profile-location-create'}}
-				</div>
 
 				{{> afQuickField name='skills' id='profile-skills-create'}}
 

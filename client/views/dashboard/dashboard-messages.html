@@ -15,8 +15,11 @@
 				<p>Messages</p>
 			</div>
 			{{#each chats}}
-            	{{> messageExcerpt}}
-            {{/each}}
+			{{> messageExcerpt}}
+			{{/each}}
+			{{#unless chats}}
+			<p class="message_card"><i class="mdi-content-drafts"></i> You have no chats active </p>
+			{{/unless}}
 		</div>
 		<div class="dashboard-card-content"></div>
 	</div>

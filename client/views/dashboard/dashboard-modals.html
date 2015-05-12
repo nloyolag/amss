@@ -11,39 +11,83 @@
 
 <template name="dashboardModals">
 
-	<div id="create-review" class="modal modal-fixed-footer">
+	<div id="create-review" class="modal">
 		<div class="modal-header">
-			<span>Review</span>
+			<span>Write your review</span>
 		</div>
 		
 		<div class="modal-content">
-		{{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
+			{{#autoForm id="createReviewForm" collection="Reviews" type="insert"}}
 
-		{{> afQuickField name='title' id='create-review-title'}}
-		{{> afQuickField name='description' id='create-review-description' rows=2}}
-		{{> afQuickField name='score' id='create-review-score'}}
-		{{> afQuickField name='task' id='create-review-task'}}
-		{{> afQuickField name='to' id='create-review-to'}}
-		{{> afQuickField name='from' id='create-review-from'}}
+			{{> afQuickField name='title' id='create-review-title'}}
+			{{> afQuickField name='description' id='create-review-description' rows=2}}
+			{{> afQuickField name='score' id='create-review-score'}}
+			{{> afQuickField name='task' id='create-review-task'}}
+			{{> afQuickField name='to' id='create-review-to'}}
+			{{> afQuickField name='from' id='create-review-from'}}
 
-		<button type="submit">Submit</button>
+			<button type="submit" class="btn waves-effect waves-light submit-review">Send my review</button>
 
-		{{/autoForm}}
+			{{/autoForm}}
 		</div>
 
 	</div>
 
-	<div id="view-review" class="modal modal-fixed-footer">
-		<h4>Review</h4>
-		<p>{{review.title}}</p>
-		<p>{{review.description}}</p>
-		<p>{{review.score}}</p>	    
+	<div id="view-review" class="modal">
+		<div class="modal-header">	
+			<span>Review</span>
+		</div>
+		<div class="modal-content">
+			<div class="content-div">
+				<span class="label"> Title: </span>
+				<p class="detail">
+					{{#if review.title}}
+					{{review.title}}
+					{{else}}
+					Not yet given
+					{{/if}}
+				</p>
+			</div>
+			<div class="content-div">
+				<span class="label"> Description: </span>
+				<p class="detail">
+				{{#if review.description}}
+				{{review.description}}
+				{{else}}
+				Not yet given
+				{{/if}}
+				</p>
+			</div>
+			<div class="content-div">
+				<span class="label"> Score: </span>
+				<p class="detail">
+				{{#if review.score}}
+				{{review.score}}
+				{{else}}
+				{{/if}}
+				</p>
+			</div>
+		</div>    
 	</div>
 
-	<div id="view-notification-task" class="modal modal-fixed-footer">
-		<h4>{{notificationTask.name}}</h4>
-		<h5>{{notificationTaskEmployer.profile.name}}</h5>
-		<p>{{notificationTask.description}}</p>
+	<div id="view-notification-task" class="modal">
+		<div class="modal-header">
+			<i class="mdi-action-assignment"></i><span> Task description </span>
+		</div>
+		<div class="modal-content">
+			<div class="content-div">
+				<span class="label"> Task name: </span>
+				<p class="detail">{{notificationTask.name}}</p>
+			</div>
+			<div class="content-div">
+				<span class="label"> From: </span>
+				<p class="detail">{{notificationTaskEmployer.profile.name}}</p>
+			</div>
+			<div class="content-div">
+				<span class="label"> Description: </span>
+				<p class="detail">{{notificationTask.description}}</p>
+			</div>
+		</div>
 	</div>
 
 	<div id="view-conversation" class="modal modal-fixed-footer chat-window">

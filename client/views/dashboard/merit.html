@@ -10,13 +10,22 @@
 -->
 
 <template name="merit">
-
-<p>My Merits</p>
-
-{{#each userMerits}}
-
-	<p>Merit: {{name}}</p>
-	<img class="badge" src={{icon}} alt="">
-{{/each}}
-
+	<div class="container">
+		<div class="card-panel green-header-card dashboard-card"> 
+			<div class="header">
+				<p>MY MERITS</p>
+			</div>
+			<div class="dashboard-card-content">
+				{{#unless userMerits}}
+				<p class="message_card"><i class="mdi-action-favorite-outline"></i> You have no merits yet </p>
+				{{/unless}}
+				{{#each userMerits}}
+				<div class="merit">
+					<img class="merit-badge" src={{icon}} alt="">
+					<span class="merit-title">{{name}}</span>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 </template>

@@ -132,3 +132,126 @@
 		background-color: color("light-blue", "darken-1");
 	}
 }
+
+#view-notification-task{
+	.modal-header{
+		margin-right: 3%;
+		margin-left: 3%;
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: $medium;
+		color:  color("green","base");
+		margin-top: 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("green","base");
+		span{
+			margin-right: 10px;
+		}
+	}
+	.content-div{
+		font-size: 18px;
+		display: block;
+		.label{
+			display: inline-block;
+			color:  color("green","lighten-1");
+			padding-right: 10px;
+		}
+		.detail{
+			display: inline-block;
+		}
+	}
+}
+
+#create-review{
+	.modal-header{
+		margin-right: 3%;
+		margin-left: 3%;
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: $medium;
+		color:  color("green","base");
+		margin-top: 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("green","base");
+		span{
+			margin-right: 10px;
+		}
+	}
+	textarea{
+		resize: none;
+		border: none;
+		border-bottom: 1px solid #bdbdbd;
+		outline: none;
+		margin-bottom: 20px;
+		height: 100px;
+	}
+	textarea:focus{
+		border-bottom: 2px solid color("teal", "lighten-1");
+	}
+
+	.has-error{
+		margin-bottom: 10px;
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"]{
+			margin-bottom: 5px;
+			padding-top: 5px;
+		}
+
+		textarea {
+			margin-bottom: 0px;
+		}
+
+		.help-block{
+			color: color("red","darken-4");
+			font-size: .7em;
+			margin-top: -10px;
+			background-color: color("red","accent-1");
+			padding: 5px 5px;
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
+			margin-bottom: 100px;
+		}
+	}
+	.submit-review{
+		width: 100%;
+		background-color: color("green", "accent-4");
+	}
+}
+
+#view-review{
+	.modal-header{
+		margin-right: 3%;
+		margin-left: 3%;
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: $medium;
+		color:  color("green","base");
+		margin-top: 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+		border-bottom: thin solid color("green","base");
+		span{
+			margin-right: 10px;
+		}
+	}
+	.content-div{
+		font-size: 18px;
+		display: block;
+		.label{
+			display: inline-block;
+			color:  color("green","lighten-1");
+			padding-right: 10px;
+		}
+		.detail{
+			display: inline-block;
+		}
+	}
+}

@@ -1,6 +1,11 @@
 <template name="search">
 	<div class="content-90">
 		<div class="row">
+			{{#unless searchResults.count}}
+			<div class="col s12">
+				<span class="messages-body">Your search had no results, try other query</span>
+			</div>
+			{{/unless}}
 			{{#each searchResults}}
 			<div class="col s3 result-card">
 				<div class="card">

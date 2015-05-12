@@ -83,12 +83,16 @@ AutoForm.hooks({
 */
 
 Template.skillEvidence.events({
-'click .deleteSkillEvidence': function(){
-    var id = Meteor.userId();
-    var name = event.target.dataset.name;
-    var evidence = event.target.dataset.evidence;
-    Meteor.call("deleteEvidence", id, name, evidence);
-}});
+    'click .deleteSkillEvidence': function(){
+        var id = Meteor.userId();
+        var name = event.target.dataset.name;
+        var evidence = event.target.dataset.evidence;
+        Meteor.call("deleteEvidence", id, name, evidence);
+    },
+    'click a[class=evidenceImages]' : function(e){
+        e.preventDefault();
+    }
+});
 
 Meteor.startup(function() {
     Uploader.finished = function(index, fileInfo, templateContext) {
