@@ -31,10 +31,11 @@ Meteor.methods({
 
         console.log(id);
 
-        Meteor.users.update({_id: id}, {$set: {username: username, "profile.name": name, "emails.0.address": email, "profile.userTitle": userTitle, "profile.bio": bio, "profile.location": location, "profile.skills": skills}});
+        Meteor.users.update({_id: id}, {$set: {username: username, "profile.name": name, "emails.0.address": email, "profile.userTitle": userTitle, "profile.bio": bio, "profile.location": location}});
         //Users.update({_id: id}, {$set: {usename: usename}, {"profile.name": name}, {"emails[0].address": email}, {"profile.userTitle": userTitle}, {"profile.bio": bio}, {"profile.location": location}})
-
-        console.log("byw");
+        for (var i in skills) {
+        	Meteor.users.update({_id: id}, { $push: { "profile.skills": skills[i] } });
+		}
 	},
 
 	/*

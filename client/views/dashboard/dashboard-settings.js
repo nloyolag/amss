@@ -26,7 +26,10 @@ Template.dashboardSettings.rendered = function() {
     $('#profile-user-title-edit')[0].value = user.profile.userTitle;
     $('#profile-bio-edit')[0].value = user.profile.bio;
     $('#profile-location-edit')[0].value = user.profile.location;
-    $('#profile-skills-edit')[0].value = user.profile.skills;
+    $('#profile-skills-edit')[1].value = ["Jere"];
+    $('#profile-skills-edit')[0].value = "Jere";
+    $('#profile-skills-edit').value = ["Jere"];
+    $('#profile-skills-edit').value = "Jere";
 }
 
 /*
